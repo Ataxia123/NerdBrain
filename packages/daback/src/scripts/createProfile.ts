@@ -1,13 +1,15 @@
 import { isRelayerResult } from '@lens-protocol/client';
 import { getAuthenticatedClient } from './shared/getAuthenticatedClient';
 import { setupWallet } from './shared/setupWallet';
+import { config } from 'dotenv';
 
 async function main() {
+  config();
   const wallet = setupWallet();
   const address = await wallet.getAddress();
   const lensClient = await getAuthenticatedClient(wallet);
 
-  const handle = Date.now().toString();
+  const handle = 'save-Point-GPT';
 
   console.log(`Creating a new profile for ${address} with handle "${handle}"`);
 

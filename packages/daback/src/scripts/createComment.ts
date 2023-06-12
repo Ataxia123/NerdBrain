@@ -12,7 +12,7 @@ export async function commentThingy(postId: string, text: string) {
   const address = await wallet.getAddress();
   const lensClient = await getAuthenticatedClient(wallet);
   const profile = await getActiveProfile(lensClient, address);
-  const profileId = '0x8585';
+  const profileId = '0x85d9';
   const collectModule = {
     simpleCollectModule: {
       followerOnly: false,

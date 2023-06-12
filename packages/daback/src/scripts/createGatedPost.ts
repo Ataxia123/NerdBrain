@@ -11,7 +11,7 @@ import { request } from 'http';
 
 const wallet = setupWallet();
 const provider = new ethers.providers.JsonRpcProvider('https://rpc.ankr.com/polygon_mumbai');
-const profileId = '0x8585';
+const profileId = '0x85d9';
 const accessCondition = {
   contractAddress: '0xd74c4701cc887ab8b6b5302ce4868c4fbc23de75',
   chainID: 80001,
