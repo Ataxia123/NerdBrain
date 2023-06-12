@@ -1,0 +1,408 @@
+2023-06-09 11:25:38 error: uncaughtException: Cannot find module 'ethers'
+Require stack:
+- /home/at0x/hackzor/stools/packages/daback/src/controllers/lensControllers/index.js
+- /home/at0x/hackzor/stools/packages/daback/src/app.ts
+- /home/at0x/hackzor/stools/packages/daback/src/server.ts
+Error: Cannot find module 'ethers'
+Require stack:
+- /home/at0x/hackzor/stools/packages/daback/src/controllers/lensControllers/index.js
+- /home/at0x/hackzor/stools/packages/daback/src/app.ts
+- /home/at0x/hackzor/stools/packages/daback/src/server.ts
+    at Function.Module._resolveFilename (node:internal/modules/cjs/loader:1060:15)
+    at Function.Module._resolveFilename.sharedData.moduleResolveFilenameHook.installedValue (/home/at0x/hackzor/stools/packages/daback/node_modules/@cspotcode/source-map-support/source-map-support.js:811:30)
+    at Function.Module._resolveFilename (/home/at0x/hackzor/stools/packages/daback/node_modules/tsconfig-paths/src/register.ts:115:36)
+    at Function.Module._load (node:internal/modules/cjs/loader:905:27)
+    at Module.require (node:internal/modules/cjs/loader:1127:19)
+    at require (node:internal/modules/helpers:112:18)
+    at Object.<anonymous> (/home/at0x/hackzor/stools/packages/daback/src/controllers/lensControllers/index.js:13:1)
+    at Module._compile (node:internal/modules/cjs/loader:1246:14)
+    at Module.m._compile (/home/at0x/hackzor/stools/packages/daback/node_modules/ts-node/src/index.ts:1618:23)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1300:10)
+2023-06-09 11:27:46 error: uncaughtException: Cannot find module 'ethers'
+Require stack:
+- /home/at0x/hackzor/stools/packages/daback/src/controllers/lensControllers/index.js
+- /home/at0x/hackzor/stools/packages/daback/src/app.ts
+- /home/at0x/hackzor/stools/packages/daback/src/server.ts
+Error: Cannot find module 'ethers'
+Require stack:
+- /home/at0x/hackzor/stools/packages/daback/src/controllers/lensControllers/index.js
+- /home/at0x/hackzor/stools/packages/daback/src/app.ts
+- /home/at0x/hackzor/stools/packages/daback/src/server.ts
+    at Function.Module._resolveFilename (node:internal/modules/cjs/loader:1060:15)
+    at Function.Module._resolveFilename.sharedData.moduleResolveFilenameHook.installedValue (/home/at0x/hackzor/stools/packages/daback/node_modules/@cspotcode/source-map-support/source-map-support.js:811:30)
+    at Function.Module._resolveFilename (/home/at0x/hackzor/stools/packages/daback/node_modules/tsconfig-paths/src/register.ts:115:36)
+    at Function.Module._load (node:internal/modules/cjs/loader:905:27)
+    at Module.require (node:internal/modules/cjs/loader:1127:19)
+    at require (node:internal/modules/helpers:112:18)
+    at Object.<anonymous> (/home/at0x/hackzor/stools/packages/daback/src/controllers/lensControllers/index.js:13:1)
+    at Module._compile (node:internal/modules/cjs/loader:1246:14)
+    at Module.m._compile (/home/at0x/hackzor/stools/packages/daback/node_modules/ts-node/src/index.ts:1618:23)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1300:10)
+2023-06-09 11:28:05 error: uncaughtException: Cannot find module 'ethers'
+Require stack:
+- /home/at0x/hackzor/stools/packages/daback/src/controllers/lensControllers/index.js
+- /home/at0x/hackzor/stools/packages/daback/src/app.ts
+- /home/at0x/hackzor/stools/packages/daback/src/server.ts
+Error: Cannot find module 'ethers'
+Require stack:
+- /home/at0x/hackzor/stools/packages/daback/src/controllers/lensControllers/index.js
+- /home/at0x/hackzor/stools/packages/daback/src/app.ts
+- /home/at0x/hackzor/stools/packages/daback/src/server.ts
+    at Function.Module._resolveFilename (node:internal/modules/cjs/loader:1060:15)
+    at Function.Module._resolveFilename.sharedData.moduleResolveFilenameHook.installedValue (/home/at0x/hackzor/stools/packages/daback/node_modules/@cspotcode/source-map-support/source-map-support.js:811:30)
+    at Function.Module._resolveFilename (/home/at0x/hackzor/stools/packages/daback/node_modules/tsconfig-paths/src/register.ts:115:36)
+    at Function.Module._load (node:internal/modules/cjs/loader:905:27)
+    at Module.require (node:internal/modules/cjs/loader:1127:19)
+    at require (node:internal/modules/helpers:112:18)
+    at Object.<anonymous> (/home/at0x/hackzor/stools/packages/daback/src/controllers/lensControllers/index.js:13:1)
+    at Module._compile (node:internal/modules/cjs/loader:1246:14)
+    at Module.m._compile (/home/at0x/hackzor/stools/packages/daback/node_modules/ts-node/src/index.ts:1618:23)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1300:10)
+2023-06-09 11:28:36 error: uncaughtException: Cannot find module 'ethers'
+Require stack:
+- /home/at0x/hackzor/stools/packages/daback/src/controllers/lensControllers/index.js
+- /home/at0x/hackzor/stools/packages/daback/src/app.ts
+- /home/at0x/hackzor/stools/packages/daback/src/server.ts
+Error: Cannot find module 'ethers'
+Require stack:
+- /home/at0x/hackzor/stools/packages/daback/src/controllers/lensControllers/index.js
+- /home/at0x/hackzor/stools/packages/daback/src/app.ts
+- /home/at0x/hackzor/stools/packages/daback/src/server.ts
+    at Function.Module._resolveFilename (node:internal/modules/cjs/loader:1060:15)
+    at Function.Module._resolveFilename.sharedData.moduleResolveFilenameHook.installedValue (/home/at0x/hackzor/stools/packages/daback/node_modules/@cspotcode/source-map-support/source-map-support.js:811:30)
+    at Function.Module._resolveFilename (/home/at0x/hackzor/stools/packages/daback/node_modules/tsconfig-paths/src/register.ts:115:36)
+    at Function.Module._load (node:internal/modules/cjs/loader:905:27)
+    at Module.require (node:internal/modules/cjs/loader:1127:19)
+    at require (node:internal/modules/helpers:112:18)
+    at Object.<anonymous> (/home/at0x/hackzor/stools/packages/daback/src/controllers/lensControllers/index.js:13:1)
+    at Module._compile (node:internal/modules/cjs/loader:1246:14)
+    at Module.m._compile (/home/at0x/hackzor/stools/packages/daback/node_modules/ts-node/src/index.ts:1618:23)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1300:10)
+2023-06-09 11:28:44 error: uncaughtException: Cannot find module 'ethers'
+Require stack:
+- /home/at0x/hackzor/stools/packages/daback/src/controllers/lensControllers/index.js
+- /home/at0x/hackzor/stools/packages/daback/src/app.ts
+- /home/at0x/hackzor/stools/packages/daback/src/server.ts
+Error: Cannot find module 'ethers'
+Require stack:
+- /home/at0x/hackzor/stools/packages/daback/src/controllers/lensControllers/index.js
+- /home/at0x/hackzor/stools/packages/daback/src/app.ts
+- /home/at0x/hackzor/stools/packages/daback/src/server.ts
+    at Function.Module._resolveFilename (node:internal/modules/cjs/loader:1060:15)
+    at Function.Module._resolveFilename.sharedData.moduleResolveFilenameHook.installedValue (/home/at0x/hackzor/stools/packages/daback/node_modules/@cspotcode/source-map-support/source-map-support.js:811:30)
+    at Function.Module._resolveFilename (/home/at0x/hackzor/stools/packages/daback/node_modules/tsconfig-paths/src/register.ts:115:36)
+    at Function.Module._load (node:internal/modules/cjs/loader:905:27)
+    at Module.require (node:internal/modules/cjs/loader:1127:19)
+    at require (node:internal/modules/helpers:112:18)
+    at Object.<anonymous> (/home/at0x/hackzor/stools/packages/daback/src/controllers/lensControllers/index.js:13:1)
+    at Module._compile (node:internal/modules/cjs/loader:1246:14)
+    at Module.m._compile (/home/at0x/hackzor/stools/packages/daback/node_modules/ts-node/src/index.ts:1618:23)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1300:10)
+2023-06-09 11:30:11 error: uncaughtException: Cannot find module 'ethers'
+Require stack:
+- /home/at0x/hackzor/stools/packages/daback/src/controllers/lensControllers/index.js
+- /home/at0x/hackzor/stools/packages/daback/src/app.ts
+- /home/at0x/hackzor/stools/packages/daback/src/server.ts
+Error: Cannot find module 'ethers'
+Require stack:
+- /home/at0x/hackzor/stools/packages/daback/src/controllers/lensControllers/index.js
+- /home/at0x/hackzor/stools/packages/daback/src/app.ts
+- /home/at0x/hackzor/stools/packages/daback/src/server.ts
+    at Function.Module._resolveFilename (node:internal/modules/cjs/loader:1060:15)
+    at Function.Module._resolveFilename.sharedData.moduleResolveFilenameHook.installedValue (/home/at0x/hackzor/stools/packages/daback/node_modules/@cspotcode/source-map-support/source-map-support.js:811:30)
+    at Function.Module._resolveFilename (/home/at0x/hackzor/stools/packages/daback/node_modules/tsconfig-paths/src/register.ts:115:36)
+    at Function.Module._load (node:internal/modules/cjs/loader:905:27)
+    at Module.require (node:internal/modules/cjs/loader:1127:19)
+    at require (node:internal/modules/helpers:112:18)
+    at Object.<anonymous> (/home/at0x/hackzor/stools/packages/daback/src/controllers/lensControllers/index.js:13:1)
+    at Module._compile (node:internal/modules/cjs/loader:1246:14)
+    at Module.m._compile (/home/at0x/hackzor/stools/packages/daback/node_modules/ts-node/src/index.ts:1618:23)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1300:10)
+2023-06-09 11:31:15 error: uncaughtException: Cannot find module 'ethers'
+Require stack:
+- /home/at0x/hackzor/stools/packages/daback/src/controllers/lensControllers/index.js
+- /home/at0x/hackzor/stools/packages/daback/src/app.ts
+- /home/at0x/hackzor/stools/packages/daback/src/server.ts
+Error: Cannot find module 'ethers'
+Require stack:
+- /home/at0x/hackzor/stools/packages/daback/src/controllers/lensControllers/index.js
+- /home/at0x/hackzor/stools/packages/daback/src/app.ts
+- /home/at0x/hackzor/stools/packages/daback/src/server.ts
+    at Function.Module._resolveFilename (node:internal/modules/cjs/loader:1060:15)
+    at Function.Module._resolveFilename.sharedData.moduleResolveFilenameHook.installedValue (/home/at0x/hackzor/stools/packages/daback/node_modules/@cspotcode/source-map-support/source-map-support.js:811:30)
+    at Function.Module._resolveFilename (/home/at0x/hackzor/stools/packages/daback/node_modules/tsconfig-paths/src/register.ts:115:36)
+    at Function.Module._load (node:internal/modules/cjs/loader:905:27)
+    at Module.require (node:internal/modules/cjs/loader:1127:19)
+    at require (node:internal/modules/helpers:112:18)
+    at Object.<anonymous> (/home/at0x/hackzor/stools/packages/daback/src/controllers/lensControllers/index.js:13:1)
+    at Module._compile (node:internal/modules/cjs/loader:1246:14)
+    at Module.m._compile (/home/at0x/hackzor/stools/packages/daback/node_modules/ts-node/src/index.ts:1618:23)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1300:10)
+2023-06-09 11:31:30 error: uncaughtException: Cannot find module 'ethers'
+Require stack:
+- /home/at0x/hackzor/stools/packages/daback/src/controllers/lensControllers/index.js
+- /home/at0x/hackzor/stools/packages/daback/src/app.ts
+- /home/at0x/hackzor/stools/packages/daback/src/server.ts
+Error: Cannot find module 'ethers'
+Require stack:
+- /home/at0x/hackzor/stools/packages/daback/src/controllers/lensControllers/index.js
+- /home/at0x/hackzor/stools/packages/daback/src/app.ts
+- /home/at0x/hackzor/stools/packages/daback/src/server.ts
+    at Function.Module._resolveFilename (node:internal/modules/cjs/loader:1060:15)
+    at Function.Module._resolveFilename.sharedData.moduleResolveFilenameHook.installedValue (/home/at0x/hackzor/stools/packages/daback/node_modules/@cspotcode/source-map-support/source-map-support.js:811:30)
+    at Function.Module._resolveFilename (/home/at0x/hackzor/stools/packages/daback/node_modules/tsconfig-paths/src/register.ts:115:36)
+    at Function.Module._load (node:internal/modules/cjs/loader:905:27)
+    at Module.require (node:internal/modules/cjs/loader:1127:19)
+    at require (node:internal/modules/helpers:112:18)
+    at Object.<anonymous> (/home/at0x/hackzor/stools/packages/daback/src/controllers/lensControllers/index.js:13:1)
+    at Module._compile (node:internal/modules/cjs/loader:1246:14)
+    at Module.m._compile (/home/at0x/hackzor/stools/packages/daback/node_modules/ts-node/src/index.ts:1618:23)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1300:10)
+2023-06-09 11:33:33 error: uncaughtException: Cannot find module 'ethers'
+Require stack:
+- /home/at0x/hackzor/stools/packages/daback/src/controllers/lensControllers/index.js
+- /home/at0x/hackzor/stools/packages/daback/src/app.ts
+- /home/at0x/hackzor/stools/packages/daback/src/server.ts
+Error: Cannot find module 'ethers'
+Require stack:
+- /home/at0x/hackzor/stools/packages/daback/src/controllers/lensControllers/index.js
+- /home/at0x/hackzor/stools/packages/daback/src/app.ts
+- /home/at0x/hackzor/stools/packages/daback/src/server.ts
+    at Function.Module._resolveFilename (node:internal/modules/cjs/loader:1060:15)
+    at Function.Module._resolveFilename.sharedData.moduleResolveFilenameHook.installedValue (/home/at0x/hackzor/stools/packages/daback/node_modules/@cspotcode/source-map-support/source-map-support.js:811:30)
+    at Function.Module._resolveFilename (/home/at0x/hackzor/stools/packages/daback/node_modules/tsconfig-paths/src/register.ts:115:36)
+    at Function.Module._load (node:internal/modules/cjs/loader:905:27)
+    at Module.require (node:internal/modules/cjs/loader:1127:19)
+    at require (node:internal/modules/helpers:112:18)
+    at Object.<anonymous> (/home/at0x/hackzor/stools/packages/daback/src/controllers/lensControllers/index.js:13:1)
+    at Module._compile (node:internal/modules/cjs/loader:1246:14)
+    at Module.m._compile (/home/at0x/hackzor/stools/packages/daback/node_modules/ts-node/src/index.ts:1618:23)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1300:10)
+2023-06-09 11:34:14 error: uncaughtException: Cannot find module './lensControllers/index.js'
+Require stack:
+- /home/at0x/hackzor/stools/packages/daback/src/app.ts
+- /home/at0x/hackzor/stools/packages/daback/src/server.ts
+Error: Cannot find module './lensControllers/index.js'
+Require stack:
+- /home/at0x/hackzor/stools/packages/daback/src/app.ts
+- /home/at0x/hackzor/stools/packages/daback/src/server.ts
+    at Function.Module._resolveFilename (node:internal/modules/cjs/loader:1060:15)
+    at Function.Module._resolveFilename.sharedData.moduleResolveFilenameHook.installedValue (/home/at0x/hackzor/stools/packages/daback/node_modules/@cspotcode/source-map-support/source-map-support.js:811:30)
+    at Function.Module._resolveFilename (/home/at0x/hackzor/stools/packages/daback/node_modules/tsconfig-paths/src/register.ts:115:36)
+    at Function.Module._load (node:internal/modules/cjs/loader:905:27)
+    at Module.require (node:internal/modules/cjs/loader:1127:19)
+    at require (node:internal/modules/helpers:112:18)
+    at Object.<anonymous> (/home/at0x/hackzor/stools/packages/daback/src/app.ts:15:1)
+    at Module._compile (node:internal/modules/cjs/loader:1246:14)
+    at Module.m._compile (/home/at0x/hackzor/stools/packages/daback/node_modules/ts-node/src/index.ts:1618:23)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1300:10)
+2023-06-09 11:34:37 error: uncaughtException: Cannot find module './lensControllers/index.js'
+Require stack:
+- /home/at0x/hackzor/stools/packages/daback/src/app.ts
+- /home/at0x/hackzor/stools/packages/daback/src/server.ts
+Error: Cannot find module './lensControllers/index.js'
+Require stack:
+- /home/at0x/hackzor/stools/packages/daback/src/app.ts
+- /home/at0x/hackzor/stools/packages/daback/src/server.ts
+    at Function.Module._resolveFilename (node:internal/modules/cjs/loader:1060:15)
+    at Function.Module._resolveFilename.sharedData.moduleResolveFilenameHook.installedValue (/home/at0x/hackzor/stools/packages/daback/node_modules/@cspotcode/source-map-support/source-map-support.js:811:30)
+    at Function.Module._resolveFilename (/home/at0x/hackzor/stools/packages/daback/node_modules/tsconfig-paths/src/register.ts:115:36)
+    at Function.Module._load (node:internal/modules/cjs/loader:905:27)
+    at Module.require (node:internal/modules/cjs/loader:1127:19)
+    at require (node:internal/modules/helpers:112:18)
+    at Object.<anonymous> (/home/at0x/hackzor/stools/packages/daback/src/app.ts:15:1)
+    at Module._compile (node:internal/modules/cjs/loader:1246:14)
+    at Module.m._compile (/home/at0x/hackzor/stools/packages/daback/node_modules/ts-node/src/index.ts:1618:23)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1300:10)
+2023-06-09 11:34:49 error: uncaughtException: Cannot find module './lensControllers/index.js'
+Require stack:
+- /home/at0x/hackzor/stools/packages/daback/src/app.ts
+- /home/at0x/hackzor/stools/packages/daback/src/server.ts
+Error: Cannot find module './lensControllers/index.js'
+Require stack:
+- /home/at0x/hackzor/stools/packages/daback/src/app.ts
+- /home/at0x/hackzor/stools/packages/daback/src/server.ts
+    at Function.Module._resolveFilename (node:internal/modules/cjs/loader:1060:15)
+    at Function.Module._resolveFilename.sharedData.moduleResolveFilenameHook.installedValue (/home/at0x/hackzor/stools/packages/daback/node_modules/@cspotcode/source-map-support/source-map-support.js:811:30)
+    at Function.Module._resolveFilename (/home/at0x/hackzor/stools/packages/daback/node_modules/tsconfig-paths/src/register.ts:115:36)
+    at Function.Module._load (node:internal/modules/cjs/loader:905:27)
+    at Module.require (node:internal/modules/cjs/loader:1127:19)
+    at require (node:internal/modules/helpers:112:18)
+    at Object.<anonymous> (/home/at0x/hackzor/stools/packages/daback/src/app.ts:15:1)
+    at Module._compile (node:internal/modules/cjs/loader:1246:14)
+    at Module.m._compile (/home/at0x/hackzor/stools/packages/daback/node_modules/ts-node/src/index.ts:1618:23)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1300:10)
+2023-06-09 11:36:14 error: uncaughtException: Cannot find module './lensControllers/index.js'
+Require stack:
+- /home/at0x/hackzor/stools/packages/daback/src/app.ts
+- /home/at0x/hackzor/stools/packages/daback/src/server.ts
+Error: Cannot find module './lensControllers/index.js'
+Require stack:
+- /home/at0x/hackzor/stools/packages/daback/src/app.ts
+- /home/at0x/hackzor/stools/packages/daback/src/server.ts
+    at Function.Module._resolveFilename (node:internal/modules/cjs/loader:1060:15)
+    at Function.Module._resolveFilename.sharedData.moduleResolveFilenameHook.installedValue (/home/at0x/hackzor/stools/packages/daback/node_modules/@cspotcode/source-map-support/source-map-support.js:811:30)
+    at Function.Module._resolveFilename (/home/at0x/hackzor/stools/packages/daback/node_modules/tsconfig-paths/src/register.ts:115:36)
+    at Function.Module._load (node:internal/modules/cjs/loader:905:27)
+    at Module.require (node:internal/modules/cjs/loader:1127:19)
+    at require (node:internal/modules/helpers:112:18)
+    at Object.<anonymous> (/home/at0x/hackzor/stools/packages/daback/src/app.ts:15:1)
+    at Module._compile (node:internal/modules/cjs/loader:1246:14)
+    at Module.m._compile (/home/at0x/hackzor/stools/packages/daback/node_modules/ts-node/src/index.ts:1618:23)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1300:10)
+2023-06-09 11:36:49 error: uncaughtException: Cannot find module './lensControllers/index.js'
+Require stack:
+- /home/at0x/hackzor/stools/packages/daback/src/app.ts
+- /home/at0x/hackzor/stools/packages/daback/src/server.ts
+Error: Cannot find module './lensControllers/index.js'
+Require stack:
+- /home/at0x/hackzor/stools/packages/daback/src/app.ts
+- /home/at0x/hackzor/stools/packages/daback/src/server.ts
+    at Function.Module._resolveFilename (node:internal/modules/cjs/loader:1060:15)
+    at Function.Module._resolveFilename.sharedData.moduleResolveFilenameHook.installedValue (/home/at0x/hackzor/stools/packages/daback/node_modules/@cspotcode/source-map-support/source-map-support.js:811:30)
+    at Function.Module._resolveFilename (/home/at0x/hackzor/stools/packages/daback/node_modules/tsconfig-paths/src/register.ts:115:36)
+    at Function.Module._load (node:internal/modules/cjs/loader:905:27)
+    at Module.require (node:internal/modules/cjs/loader:1127:19)
+    at require (node:internal/modules/helpers:112:18)
+    at Object.<anonymous> (/home/at0x/hackzor/stools/packages/daback/src/app.ts:15:1)
+    at Module._compile (node:internal/modules/cjs/loader:1246:14)
+    at Module.m._compile (/home/at0x/hackzor/stools/packages/daback/node_modules/ts-node/src/index.ts:1618:23)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1300:10)
+2023-06-09 11:39:01 error: uncaughtException: Cannot find module './lensControllers/index.js'
+Require stack:
+- /home/at0x/hackzor/stools/packages/daback/src/app.ts
+- /home/at0x/hackzor/stools/packages/daback/src/server.ts
+Error: Cannot find module './lensControllers/index.js'
+Require stack:
+- /home/at0x/hackzor/stools/packages/daback/src/app.ts
+- /home/at0x/hackzor/stools/packages/daback/src/server.ts
+    at Function.Module._resolveFilename (node:internal/modules/cjs/loader:1060:15)
+    at Function.Module._resolveFilename.sharedData.moduleResolveFilenameHook.installedValue (/home/at0x/hackzor/stools/packages/daback/node_modules/@cspotcode/source-map-support/source-map-support.js:811:30)
+    at Function.Module._resolveFilename (/home/at0x/hackzor/stools/packages/daback/node_modules/tsconfig-paths/src/register.ts:115:36)
+    at Function.Module._load (node:internal/modules/cjs/loader:905:27)
+    at Module.require (node:internal/modules/cjs/loader:1127:19)
+    at require (node:internal/modules/helpers:112:18)
+    at Object.<anonymous> (/home/at0x/hackzor/stools/packages/daback/src/app.ts:15:1)
+    at Module._compile (node:internal/modules/cjs/loader:1246:14)
+    at Module.m._compile (/home/at0x/hackzor/stools/packages/daback/node_modules/ts-node/src/index.ts:1618:23)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1300:10)
+2023-06-09 11:40:08 error: uncaughtException: Cannot find module 'ethers'
+Require stack:
+- /home/at0x/hackzor/stools/packages/daback/src/controllers/lensControllers/index.js
+- /home/at0x/hackzor/stools/packages/daback/src/app.ts
+- /home/at0x/hackzor/stools/packages/daback/src/server.ts
+Error: Cannot find module 'ethers'
+Require stack:
+- /home/at0x/hackzor/stools/packages/daback/src/controllers/lensControllers/index.js
+- /home/at0x/hackzor/stools/packages/daback/src/app.ts
+- /home/at0x/hackzor/stools/packages/daback/src/server.ts
+    at Function.Module._resolveFilename (node:internal/modules/cjs/loader:1060:15)
+    at Function.Module._resolveFilename.sharedData.moduleResolveFilenameHook.installedValue (/home/at0x/hackzor/stools/packages/daback/node_modules/@cspotcode/source-map-support/source-map-support.js:811:30)
+    at Function.Module._resolveFilename (/home/at0x/hackzor/stools/packages/daback/node_modules/tsconfig-paths/src/register.ts:115:36)
+    at Function.Module._load (node:internal/modules/cjs/loader:905:27)
+    at Module.require (node:internal/modules/cjs/loader:1127:19)
+    at require (node:internal/modules/helpers:112:18)
+    at Object.<anonymous> (/home/at0x/hackzor/stools/packages/daback/src/controllers/lensControllers/index.js:13:1)
+    at Module._compile (node:internal/modules/cjs/loader:1246:14)
+    at Module.m._compile (/home/at0x/hackzor/stools/packages/daback/node_modules/ts-node/src/index.ts:1618:23)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1300:10)
+2023-06-09 11:40:46 error: uncaughtException: Cannot find module 'ethers'
+Require stack:
+- /home/at0x/hackzor/stools/packages/daback/src/controllers/lensControllers/index.js
+- /home/at0x/hackzor/stools/packages/daback/src/app.ts
+- /home/at0x/hackzor/stools/packages/daback/src/server.ts
+Error: Cannot find module 'ethers'
+Require stack:
+- /home/at0x/hackzor/stools/packages/daback/src/controllers/lensControllers/index.js
+- /home/at0x/hackzor/stools/packages/daback/src/app.ts
+- /home/at0x/hackzor/stools/packages/daback/src/server.ts
+    at Function.Module._resolveFilename (node:internal/modules/cjs/loader:1060:15)
+    at Function.Module._resolveFilename.sharedData.moduleResolveFilenameHook.installedValue (/home/at0x/hackzor/stools/packages/daback/node_modules/@cspotcode/source-map-support/source-map-support.js:811:30)
+    at Function.Module._resolveFilename (/home/at0x/hackzor/stools/packages/daback/node_modules/tsconfig-paths/src/register.ts:115:36)
+    at Function.Module._load (node:internal/modules/cjs/loader:905:27)
+    at Module.require (node:internal/modules/cjs/loader:1127:19)
+    at require (node:internal/modules/helpers:112:18)
+    at Object.<anonymous> (/home/at0x/hackzor/stools/packages/daback/src/controllers/lensControllers/index.js:13:1)
+    at Module._compile (node:internal/modules/cjs/loader:1246:14)
+    at Module.m._compile (/home/at0x/hackzor/stools/packages/daback/node_modules/ts-node/src/index.ts:1618:23)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1300:10)
+2023-06-09 11:43:08 error: uncaughtException: Cannot find module 'ethers'
+Require stack:
+- /home/at0x/hackzor/stools/packages/daback/src/controllers/lensControllers/index.js
+- /home/at0x/hackzor/stools/packages/daback/src/app.ts
+- /home/at0x/hackzor/stools/packages/daback/src/server.ts
+Error: Cannot find module 'ethers'
+Require stack:
+- /home/at0x/hackzor/stools/packages/daback/src/controllers/lensControllers/index.js
+- /home/at0x/hackzor/stools/packages/daback/src/app.ts
+- /home/at0x/hackzor/stools/packages/daback/src/server.ts
+    at Function.Module._resolveFilename (node:internal/modules/cjs/loader:1060:15)
+    at Function.Module._resolveFilename.sharedData.moduleResolveFilenameHook.installedValue (/home/at0x/hackzor/stools/packages/daback/node_modules/@cspotcode/source-map-support/source-map-support.js:811:30)
+    at Function.Module._resolveFilename (/home/at0x/hackzor/stools/packages/daback/node_modules/tsconfig-paths/src/register.ts:115:36)
+    at Function.Module._load (node:internal/modules/cjs/loader:905:27)
+    at Module.require (node:internal/modules/cjs/loader:1127:19)
+    at require (node:internal/modules/helpers:112:18)
+    at Object.<anonymous> (/home/at0x/hackzor/stools/packages/daback/src/controllers/lensControllers/index.js:13:1)
+    at Module._compile (node:internal/modules/cjs/loader:1246:14)
+    at Module.m._compile (/home/at0x/hackzor/stools/packages/daback/node_modules/ts-node/src/index.ts:1618:23)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1300:10)
+2023-06-09 11:45:37 error: uncaughtException: Cannot find module '../ipfs.js/index.js'
+Require stack:
+- /home/at0x/hackzor/stools/packages/daback/src/controllers/lensControllers/index.js
+- /home/at0x/hackzor/stools/packages/daback/src/app.ts
+- /home/at0x/hackzor/stools/packages/daback/src/server.ts
+Error: Cannot find module '../ipfs.js/index.js'
+Require stack:
+- /home/at0x/hackzor/stools/packages/daback/src/controllers/lensControllers/index.js
+- /home/at0x/hackzor/stools/packages/daback/src/app.ts
+- /home/at0x/hackzor/stools/packages/daback/src/server.ts
+    at Function.Module._resolveFilename (node:internal/modules/cjs/loader:1060:15)
+    at Function.Module._resolveFilename.sharedData.moduleResolveFilenameHook.installedValue (/home/at0x/hackzor/stools/packages/daback/node_modules/@cspotcode/source-map-support/source-map-support.js:811:30)
+    at Function.Module._resolveFilename (/home/at0x/hackzor/stools/packages/daback/node_modules/tsconfig-paths/src/register.ts:115:36)
+    at Function.Module._load (node:internal/modules/cjs/loader:905:27)
+    at Module.require (node:internal/modules/cjs/loader:1127:19)
+    at require (node:internal/modules/helpers:112:18)
+    at Object.<anonymous> (/home/at0x/hackzor/stools/packages/daback/src/controllers/lensControllers/index.js:17:1)
+    at Module._compile (node:internal/modules/cjs/loader:1246:14)
+    at Module.m._compile (/home/at0x/hackzor/stools/packages/daback/node_modules/ts-node/src/index.ts:1618:23)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1300:10)
+2023-06-09 11:46:31 error: uncaughtException: Cannot find module '../ipfs.js/index.js'
+Require stack:
+- /home/at0x/hackzor/stools/packages/daback/src/controllers/lensControllers/index.js
+- /home/at0x/hackzor/stools/packages/daback/src/app.ts
+- /home/at0x/hackzor/stools/packages/daback/src/server.ts
+Error: Cannot find module '../ipfs.js/index.js'
+Require stack:
+- /home/at0x/hackzor/stools/packages/daback/src/controllers/lensControllers/index.js
+- /home/at0x/hackzor/stools/packages/daback/src/app.ts
+- /home/at0x/hackzor/stools/packages/daback/src/server.ts
+    at Function.Module._resolveFilename (node:internal/modules/cjs/loader:1060:15)
+    at Function.Module._resolveFilename.sharedData.moduleResolveFilenameHook.installedValue (/home/at0x/hackzor/stools/packages/daback/node_modules/@cspotcode/source-map-support/source-map-support.js:811:30)
+    at Function.Module._resolveFilename (/home/at0x/hackzor/stools/packages/daback/node_modules/tsconfig-paths/src/register.ts:115:36)
+    at Function.Module._load (node:internal/modules/cjs/loader:905:27)
+    at Module.require (node:internal/modules/cjs/loader:1127:19)
+    at require (node:internal/modules/helpers:112:18)
+    at Object.<anonymous> (/home/at0x/hackzor/stools/packages/daback/src/controllers/lensControllers/index.js:17:1)
+    at Module._compile (node:internal/modules/cjs/loader:1246:14)
+    at Module.m._compile (/home/at0x/hackzor/stools/packages/daback/node_modules/ts-node/src/index.ts:1618:23)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1300:10)
+2023-06-09 11:48:37 error: uncaughtException: Cannot find module '../ipfs.js/index.js'
+Require stack:
+- /home/at0x/hackzor/stools/packages/daback/src/controllers/lensControllers/index.js
+- /home/at0x/hackzor/stools/packages/daback/src/app.ts
+- /home/at0x/hackzor/stools/packages/daback/src/server.ts
+Error: Cannot find module '../ipfs.js/index.js'
+Require stack:
+- /home/at0x/hackzor/stools/packages/daback/src/controllers/lensControllers/index.js
+- /home/at0x/hackzor/stools/packages/daback/src/app.ts
+- /home/at0x/hackzor/stools/packages/daback/src/server.ts
+    at Function.Module._resolveFilename (node:internal/modules/cjs/loader:1060:15)
+    at Function.Module._resolveFilename.sharedData.moduleResolveFilenameHook.installedValue (/home/at0x/hackzor/stools/packages/daback/node_modules/@cspotcode/source-map-support/source-map-support.js:811:30)
+    at Function.Module._resolveFilename (/home/at0x/hackzor/stools/packages/daback/node_modules/tsconfig-paths/src/register.ts:115:36)
+    at Function.Module._load (node:internal/modules/cjs/loader:905:27)
+    at Module.require (node:internal/modules/cjs/loader:1127:19)
+    at require (node:internal/modules/helpers:112:18)
+    at Object.<anonymous> (/home/at0x/hackzor/stools/packages/daback/src/controllers/lensControllers/index.js:17:1)
+    at Module._compile (node:internal/modules/cjs/loader:1246:14)
+    at Module.m._compile (/home/at0x/hackzor/stools/packages/daback/node_modules/ts-node/src/index.ts:1618:23)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1300:10)

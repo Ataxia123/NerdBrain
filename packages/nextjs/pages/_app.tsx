@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import type { AppProps } from "next/app";
+import { LensConfig, LensProvider, appId, development, production, sources } from "@lens-protocol/react-web";
+import { bindings as wagmiBindings } from "@lens-protocol/wagmi";
 import { RainbowKitProvider, darkTheme, lightTheme } from "@rainbow-me/rainbowkit";
 import "@rainbow-me/rainbowkit/styles.css";
 import NextNProgress from "nextjs-progressbar";
@@ -22,6 +24,12 @@ const ScaffoldEthApp = ({ Component, pageProps }: AppProps) => {
   const [isDarkTheme, setIsDarkTheme] = useState(true);
   const { isDarkMode } = useDarkMode();
 
+  const lensConfig: LensConfig = {
+    bindings: wagmiBindings(),
+    environment: development,
+    sources: [sources.lenster, sources.orb, appId("any-other-app-id")],
+  };
+
   useEffect(() => {
     if (price > 0) {
       setNativeCurrencyPrice(price);
@@ -34,21 +42,23 @@ const ScaffoldEthApp = ({ Component, pageProps }: AppProps) => {
 
   return (
     <WagmiConfig client={wagmiClient}>
-      <NextNProgress />
-      <RainbowKitProvider
-        chains={appChains.chains}
-        avatar={BlockieAvatar}
-        theme={isDarkTheme ? darkTheme() : lightTheme()}
-      >
-        <div className="flex flex-col min-h-screen">
-          <Header />
-          <main className="relative flex flex-col flex-1">
-            <Component {...pageProps} />
-          </main>
-          <Footer />
-        </div>
-        <Toaster />
-      </RainbowKitProvider>
+      <LensProvider config={lensConfig}>
+        <NextNProgress />
+        <RainbowKitProvider
+          chains={appChains.chains}
+          avatar={BlockieAvatar}
+          theme={isDarkTheme ? darkTheme() : lightTheme()}
+        >
+          <div className="flex flex-col min-h-screen">
+            <Header />
+            <main className="relative flex flex-col flex-1">
+              <Component {...pageProps} />
+            </main>
+            <Footer />
+          </div>
+          <Toaster />
+        </RainbowKitProvider>
+      </LensProvider>
     </WagmiConfig>
   );
 };
