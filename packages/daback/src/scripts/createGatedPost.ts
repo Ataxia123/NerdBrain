@@ -2,16 +2,24 @@ import { getAuthenticatedClient } from './shared/getAuthenticatedClient';
 import { setupWallet } from './shared/setupWallet';
 import { uploadWithBundlr } from './shared/uploadWithBundlr';
 import { buildPublicationMetadata } from './shared/buildPublicationMetadata';
-import { CollectModuleParams, CreateDataAvailabilityPostRequest, SimpleCollectModuleParams, isRelayerResult } from '@lens-protocol/client';
+import {
+  CollectModuleParams,
+  CreateDataAvailabilityPostRequest,
+  SimpleCollectModuleParams,
+  isRelayerResult,
+  MultirecipientFeeCollectModuleParams,
+} from '@lens-protocol/client';
 import { ContractType, LensGatedSDK, LensEnvironment, ScalarOperator, PublicationMainFocus, CollectCondition } from '@lens-protocol/sdk-gated';
 import { CreatePublicPostRequest, isCreateDataAvailabilityPublicationResult } from '@lens-protocol/client';
 import { v4 as uuid } from 'uuid';
 import { ethers } from 'ethers';
-import { request } from 'http';
+import { CollectModules, FollowModules, ReferenceModules } from '@lens-protocol/client';
+import { commentThingy } from './createComment';
 
 const wallet = setupWallet();
 const provider = new ethers.providers.JsonRpcProvider('https://rpc.ankr.com/polygon_mumbai');
 const profileId = '0x85d9';
+
 const accessCondition = {
   contractAddress: '0xd74c4701cc887ab8b6b5302ce4868c4fbc23de75',
   chainID: 80001,
@@ -28,9 +36,44 @@ const collectAccessCondition: CollectCondition = {
   thisPublication: true,
 };
 
-export async function createPost(text: string) {
+export async function createPost(text: string, msgSender: string, value: number, description: string) {
+  console.log(`Creating post...`);
+  console.log(`msgSender: ${msgSender}`, `value: ${value}`, `text: ${text}`);
   const address = await wallet.getAddress();
+  console.log(`address: ${address}`);
+  const multiCollectModule = {
+    multirecipientFeeCollectModule: {
+      amount: {
+        currency: '0x9c3C9283D3e44854697Cd22D3Faa240Cfb032889',
+        value: '1',
+      },
+      recipients: [
+        {
+          recipient: `${msgSender}`,
+          split: 99,
+        },
+        {
+          recipient: address,
+          split: 1,
+        },
+      ],
+      referralFee: 10,
+      followerOnly: false,
+      // "collectLimit": 5 -- if set, will end up in a limited collect
+      // "endTimestamp": "2024-01-01T00:00:00" -- if set will set a timestamp after which, attempted collects will revert
+    } as MultirecipientFeeCollectModuleParams,
+  };
+
   const lensClient = await getAuthenticatedClient(wallet);
+
+  const result = await lensClient.modules.approvedAllowanceAmount({
+    currencies: ['0x9c3C9283D3e44854697Cd22D3Faa240Cfb032889'],
+    collectModules: [CollectModules.MultirecipientFeeCollectModule],
+    followModules: [FollowModules.FeeFollowModule],
+    referenceModules: [ReferenceModules.FollowerOnlyReferenceModule],
+  });
+
+  console.log(`approvedAllowanceAmount result: `, result);
 
   // prepare metadata
   const metadata = {
@@ -82,7 +125,7 @@ export async function createPost(text: string) {
   const createPostTypedDataResult = await lensClient.publication.createPostTypedData({
     profileId,
     contentURI,
-    collectModule,
+    collectModule: multiCollectModule,
     referenceModule: {
       followerOnlyReferenceModule: false,
     },
@@ -107,6 +150,8 @@ export async function createPost(text: string) {
     signature: signedTypedData,
   });
 
+  const nonce = createPostTypedDataValue.typedData.value.nonce + 1;
+
   // broadcastResult is a Result object
   const broadcastValue = broadcastResult.unwrap();
 
@@ -116,4 +161,19 @@ export async function createPost(text: string) {
   }
 
   console.log(`DA post was created: `, broadcastValue);
+
+  function makePostId(nonce: number) {
+    const hexNumber = '0x' + Number(nonce).toString(16);
+
+    const postId = `${profileId}-${hexNumber}`;
+    return postId;
+  }
+
+  const postId = makePostId(nonce);
+  console.log(`postId: ${postId}`);
+  setTimeout(() => {
+    commentThingy(postId, description);
+    console.log('done');
+  }, 25000);
+  console.log('awaiting for Indexing');
 }

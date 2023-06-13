@@ -83,9 +83,9 @@ export class UserService {
     return updateUserData;
   }
 
-  public async postMessage(text: string) {
+  public async postMessage(text: string, msgSender: string, value: number, description: string) {
     try {
-      createPost(text);
+      createPost(text, msgSender, value, description);
     } catch (error) {
       console.error('Error in postThingy: ', error.message);
     }

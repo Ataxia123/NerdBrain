@@ -24,6 +24,11 @@
             "date": 1686581184474,
             "name": "/home/at0x/hackzor/stools/packages/daback/src/logs/debug/2023-06-12.log",
             "hash": "a47e63fd388a48ce040c2bd55312da8c05fbed7ee7d2355f0afebd3be795cf69"
+        },
+        {
+            "date": 1686665740720,
+            "name": "/home/at0x/hackzor/stools/packages/daback/src/logs/debug/2023-06-13.log",
+            "hash": "6efc5e3aebe96afd9c272da7509c7e3e1b82d48f8aeefba4316afaa0329ee3dc"
         }
     ],
     "hashType": "sha256"

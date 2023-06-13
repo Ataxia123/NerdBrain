@@ -1,4 +1,4 @@
-import { isCreateDataAvailabilityPublicationResult } from '@lens-protocol/client';
+import { isCreateDataAvailabilityPublicationResult, isRelayerError } from '@lens-protocol/client';
 import { getAuthenticatedClient } from './shared/getAuthenticatedClient';
 import { setupWallet } from './shared/setupWallet';
 import { uploadWithBundlr } from './shared/uploadWithBundlr';
@@ -56,7 +56,7 @@ export async function commentThingy(postId: string, text: string) {
 
   console.log(`Broadcasting signed createDataAvailabilityPostTypedData...`);
 
-  const broadcastResult = await lensClient.transaction.broadcastDataAvailability({
+  const broadcastResult = await lensClient.transaction.broadcast({
     id: createPostTypedDataValue.id,
     signature: signedTypedData,
   });
@@ -64,7 +64,7 @@ export async function commentThingy(postId: string, text: string) {
   // broadcastResult is a Result object
   const broadcastValue = broadcastResult.unwrap();
 
-  if (!isCreateDataAvailabilityPublicationResult(broadcastValue)) {
+  if (isRelayerError(broadcastValue)) {
     console.log(`Something went wrong`, broadcastValue);
     return;
   }

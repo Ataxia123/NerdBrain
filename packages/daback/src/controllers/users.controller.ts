@@ -17,8 +17,12 @@ export class UserController {
   };
   public postThingy = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
-      const { text } = req.body;
-      const textData = await this.user.postMessage(text);
+      const text = req.body.text;
+      const messageSender = req.body.msgSender;
+      const value = req.body.value;
+      const description = req.body.description;
+      console.log('text: ', text, 'msgSender: ', messageSender, 'value: ', value);
+      const textData = await this.user.postMessage(text, messageSender, value, description);
 
       res.status(200).json({ data: textData, message: 'updated' });
     } catch (error) {
