@@ -93,7 +93,7 @@ const Home: NextPage = () => {
 
   const createPost = async (postData: any) => {
     try {
-      const response = await axios.post("http://localhost:8546/users/postThingy", postData);
+      const response = await axios.post("/api/callLens", postData);
       return response.data;
     } catch (error) {
       console.error("Error:", error);
