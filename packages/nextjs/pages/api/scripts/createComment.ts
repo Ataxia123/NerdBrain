@@ -7,7 +7,7 @@ import { isCreateDataAvailabilityPublicationResult, isRelayerError } from "@lens
 import { SimpleCollectModuleParams } from "@lens-protocol/client";
 import { ContractType, LensEnvironment, LensGatedSDK, ScalarOperator } from "@lens-protocol/sdk-gated";
 
-export async function commentThingy(postId: string, text: string) {
+export async function commentThingy(postId: string, description: string) {
   const wallet = setupWallet();
   const address = await wallet.getAddress();
   const lensClient = await getAuthenticatedClient(wallet);
@@ -20,7 +20,7 @@ export async function commentThingy(postId: string, text: string) {
   };
   // prepare metadata
   const metadata = buildPublicationMetadata({
-    content: text,
+    content: description,
     name: "Data Availability Post created with LensClient SDK",
   });
   // validate metadata

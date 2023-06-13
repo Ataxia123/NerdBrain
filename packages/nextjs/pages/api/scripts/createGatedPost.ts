@@ -1,4 +1,3 @@
-import { commentThingy } from "./createComment";
 import { buildPublicationMetadata } from "./shared/buildPublicationMetadata";
 import { getAuthenticatedClient } from "./shared/getAuthenticatedClient";
 import { setupWallet } from "./shared/setupWallet";
@@ -43,7 +42,7 @@ const collectAccessCondition: CollectCondition = {
   thisPublication: true,
 };
 
-export async function createPost(text: string, msgSender: string, value: number, description: string) {
+export async function createPost(text: string, msgSender: string, value: number) {
   console.log(`Creating post...`);
   console.log(`msgSender: ${msgSender}`, `value: ${value}`, `text: ${text}`);
   const address = await wallet.getAddress();
@@ -157,7 +156,7 @@ export async function createPost(text: string, msgSender: string, value: number,
     signature: signedTypedData,
   });
 
-  const nonce = createPostTypedDataValue.typedData.value.nonce + 1;
+  const nonce = createPostTypedDataValue.typedData.value.nonce;
 
   // broadcastResult is a Result object
   const broadcastValue = broadcastResult.unwrap();
@@ -170,17 +169,12 @@ export async function createPost(text: string, msgSender: string, value: number,
   console.log(`DA post was created: `, broadcastValue);
 
   function makePostId(nonce: number) {
-    const hexNumber = "0x" + Number(nonce).toString(16);
+    const hexNumber = "0x" + (Number(nonce) + 1).toString(16);
+    console.log(`hexNumber: ${hexNumber}`);
 
     const postId = `${profileId}-${hexNumber}`;
     return postId;
   }
 
-  const postId = makePostId(nonce);
-  console.log(`postId: ${postId}`);
-  setTimeout(() => {
-    commentThingy(postId, description);
-    console.log("done");
-  }, 25000);
-  console.log("awaiting for Indexing");
+  return makePostId(nonce);
 }

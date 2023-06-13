@@ -4,6 +4,7 @@ import { MetaHeader } from "../components/MetaHeader";
 import Feed from "../components/decryptPublication.js";
 import LensComponent from "../components/lensComponent.js";
 import axios from "axios";
+import { create } from "domain";
 import { config } from "dotenv";
 import type { NextPage } from "next";
 import { useAccount } from "wagmi";
@@ -15,6 +16,8 @@ const Home: NextPage = () => {
   const [postValue, setPostValue] = useState(1);
   const { address, isConnecting, isDisconnected } = useAccount();
   const [walletAddress, setAddress] = useState("");
+  const [error, setError] = useState(null);
+  const [commentResponse, setResponse] = useState<any>();
 
   useEffect(() => {
     if (isConnecting && address) setAddress(address);
@@ -37,14 +40,21 @@ const Home: NextPage = () => {
           text: url,
           msgSender: walletAddress,
           value: postValue,
-          description: postText,
         });
-
-        console.log(response);
-        // Do something with response or show success message...
-      } catch (error) {
-        // Handle error...
+        console.log(response), "Postresponse";
+        setResponse(response);
+        setTimeout(async () => {
+          const profileResponse = await createProfile({
+            postId: response,
+            description: postText,
+          });
+          console.log(profileResponse, "after 10 seconds");
+        }, 10000);
+        console.log("after 10 seconds");
+      } catch (error: any) {
+        setError(error);
       }
+      console.log("response hook triggered!");
     };
 
     return (
@@ -61,40 +71,19 @@ const Home: NextPage = () => {
         <textarea value={postText} onChange={e => setProfileName(e.target.value)} style={{ color: "black" }} />
         <br />
         <button onClick={handleCreatePost}>Create Post</button>
-      </div>
-    );
-  };
-
-  const ProfileCreator = () => {
-    const [postText, setProfileName] = useState("");
-    const [url, setUrl] = useState("");
-
-    const handleCreateProfile = async () => {
-      try {
-        const postData = { handle: postText, profilePictureUri: url };
-        const response = await createProfile(postData);
-
-        console.log(response);
-        // Do something with response or show success message...
-      } catch (error) {
-        // Handle error...
-      }
-    };
-
-    return (
-      <div>
-        <textarea value={postText} onChange={e => setProfileName(e.target.value)} style={{ color: "black" }} />
-        <textarea value={url} onChange={e => setUrl(e.target.value)} style={{ color: "black" }} />
-        <br />
-        <button onClick={handleCreateProfile}>Create Profile</button>
+        <div></div>
       </div>
     );
   };
 
   const createPost = async (postData: any) => {
     try {
-      const response = await axios.post("/api/callLens", postData);
-      return response.data;
+      const post = await axios.post("/api/callLens", postData);
+      console.log(post.data.data);
+      return post.data.data;
+      // setTimeout(async () => {
+
+      // }, 10);
     } catch (error) {
       console.error("Error:", error);
       throw error;
@@ -102,8 +91,10 @@ const Home: NextPage = () => {
   };
 
   const createProfile = async (postData: any) => {
+    console.log("posting comment to encrypted post", postData);
     try {
-      const response = await axios.post("http://localhost:8546/create", postData);
+      console.log("posting comment to encrypted post");
+      const response = await axios.post("/api/comment", postData);
       return response.data;
     } catch (error) {
       console.error("Error:", error);

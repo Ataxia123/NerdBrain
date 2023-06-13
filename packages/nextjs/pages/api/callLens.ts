@@ -6,10 +6,10 @@ export default async (req: NextApiRequest, res: NextApiResponse): Promise<void> 
     const text = req.body.text;
     const messageSender = req.body.msgSender;
     const value = req.body.value;
-    const description = req.body.description;
+
     console.log("text: ", text, "msgSender: ", messageSender, "value: ", value);
     try {
-      const textData = await createPost(text, messageSender, value, description);
+      const textData = await createPost(text, messageSender, value);
       res.status(200).json({ data: textData, message: "updated" });
     } catch (error: any) {
       res.status(500).json({ error: "Error generating scanner output." });
