@@ -16,6 +16,8 @@
   "dependencies": {
     "@bundlr-network/client": "^0.11.2",
     "@emotion/css": "^11.11.0",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
     "@ethersproject/networks": "^5.7.1",
     "@ethersproject/web": "^5.7.1",
     "@heroicons/react": "^2.0.11",
@@ -23,6 +25,7 @@
     "@lens-protocol/react-web": "^1.1.0",
     "@lens-protocol/sdk-gated": "^1.2.0",
     "@lens-protocol/wagmi": "^1.1.0",
+    "@mui/material": "^5.13.5",
     "@rainbow-me/rainbowkit": "^0.11.0",
     "@uniswap/sdk": "^3.0.3",
     "daisyui": "^2.31.0",
