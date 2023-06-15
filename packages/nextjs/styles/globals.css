@@ -42,6 +42,3 @@ p {
          transition-transform duration-500 ease-in-out;
 }
 
-.ps2-memory-card:hover {
-  @apply transform scale-105;
-}

@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
-import { client, getDefaultProfile, getPublication, getSigner } from "../api";
+import { client, getDefaultProfile, getPublication, getSigner } from "../pages/api/api.js";
 import { css } from "@emotion/css";
 import { LensEnvironment, LensGatedSDK } from "@lens-protocol/sdk-gated";
+import { Input } from "@mui/material";
+import axios from "axios";
 import { ethers } from "ethers";
+import { useAccount, useProvider } from "wagmi";
 
 export default function Feed() {
   const [post, setPost] = useState();
@@ -10,24 +13,28 @@ export default function Feed() {
   const [publicationId, setPublicationId] = useState("");
   const [profileId, setProfileId] = useState("");
   const [message, setMessage] = useState("");
+  const [postText, setProfileName] = useState("");
+  const [commentResponse, setResponse] = useState();
+  const [error, setError] = useState("");
+
   useEffect(() => {
     checkConnection();
   }, []);
+  const provider = useProvider();
+  const accounts = useAccount();
+
   async function checkConnection() {
-    const provider = new ethers.providers.Web3Provider(window.ethereum);
-    const accounts = await provider.listAccounts();
     if (accounts.length) {
       /* if the user's wallet is connected, call the API and get the user's profile information */
       try {
         const response = await client.query({
           query: getDefaultProfile,
           variables: {
-            address: accounts[0],
+            address: accounts.address,
             limit: 50,
           },
         });
-        console.log({ accounts });
-        setProfileId(response.data.defaultProfile.id);
+        console.log({ accounts, response });
       } catch (err) {
         console.log("error fetching profile... ", err);
         setMessage("error: user does not have a Lens profile");
@@ -48,6 +55,7 @@ export default function Feed() {
         },
       });
       let post = result.data.publication;
+      console.log({ post });
 
       /* if the user is unable to decrypt, set the message in the local state and return from the function */
       if (!post.canDecrypt.result) {
@@ -59,13 +67,13 @@ export default function Feed() {
       try {
         /* next, we create an instance of the Lens SDK */
         const sdk = await LensGatedSDK.create({
-          provider: new ethers.providers.Web3Provider(window.ethereum),
+          provider: ethers.getDefaultProvider(),
           signer: getSigner(),
-          env: process.env.NEXT_PUBLIC_ENVIRONMENT || LensEnvironment.Mumbai,
+          env: LensEnvironment.Mumbai,
         });
 
         /* we then use the Lens SDK to decrypt the message */
-        const { decrypted } = await sdk.gated.decryptMetadata(post.metadata);
+        const decrypted = await sdk.gated.decryptMetadata(post.metadata);
         console.log({ decrypted });
         setPost(decrypted);
       } catch (err) {
@@ -76,9 +84,16 @@ export default function Feed() {
       console.log("Error fetching posts...", err);
     }
   }
+
   return (
     <div className={contentContainerStyle}>
       <h1>Decrypt an individual publication</h1>
+      <input
+        onChange={e => setProfileId(e.target.value)}
+        placeholder="ProfileId"
+        value={profileId}
+        className={inputStyle}
+      />
       <input
         onChange={e => setPublicationId(e.target.value)}
         placeholder="ID of post"
@@ -88,6 +103,12 @@ export default function Feed() {
       <button className={submitButtonStyle} onClick={decryptPost}>
         Decrypt Post
       </button>
+      <Input
+        value={postText}
+        onChange={e => setProfileName(e.target.value)}
+        onSubmit={e => e.preventDefault()}
+        style={{ color: "black", width: "80%", marginLeft: "15%" }}
+      />
       {post && (
         <div>
           <h3>Decrypted post</h3>
@@ -96,6 +117,7 @@ export default function Feed() {
       )}
       {message && <p>{message}</p>}
       {loading && <p>Loading and decrypting post ...</p>}
+      {error && <p>Error {error.message}</p>}
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import LENS_HUB_ABI from "./abi.json";
+import LENS_HUB_ABI from "../../abi.json";
 import { ApolloClient, InMemoryCache, createHttpLink, gql } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 import { ethers, utils } from "ethers";
@@ -8,7 +8,7 @@ export const LENS_HUB_CONTRACT = "0xDb46d1Dc155634FbC732f92E853b10B288AD5a1d";
 export const lensHub = new ethers.Contract(LENS_HUB_CONTRACT, LENS_HUB_ABI, getSigner());
 
 export const STORAGE_KEY = "lens-auth-token";
-const API_URL = "https://api.lens.dev";
+const API_URL = "https://api-mumbai.lens.dev";
 
 const authLink = setContext(async (_, { headers }) => {
   const token = JSON.parse(window.localStorage.getItem(STORAGE_KEY));

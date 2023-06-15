@@ -11,11 +11,14 @@ import {
 } from "@lens-protocol/client";
 import { CreatePublicPostRequest, isCreateDataAvailabilityPublicationResult } from "@lens-protocol/client";
 import { CollectModules, FollowModules, ReferenceModules } from "@lens-protocol/client";
+import { CollectConditionOutput } from "@lens-protocol/react-web";
 import {
   CollectCondition,
   ContractType,
+  EoaOwnership,
   LensEnvironment,
   LensGatedSDK,
+  OrCondition,
   PublicationMainFocus,
   ScalarOperator,
 } from "@lens-protocol/sdk-gated";
@@ -26,23 +29,37 @@ const wallet = setupWallet();
 const provider = new ethers.providers.JsonRpcProvider("https://rpc.ankr.com/polygon_mumbai");
 const profileId = "0x85d9";
 
-const accessCondition = {
-  contractAddress: "0xd74c4701cc887ab8b6b5302ce4868c4fbc23de75",
-  chainID: 80001,
-  contractType: ContractType.Erc721,
-};
-
-const collectModule = {
-  simpleCollectModule: {
-    followerOnly: false,
-  } as SimpleCollectModuleParams,
-};
-
-const collectAccessCondition: CollectCondition = {
-  thisPublication: true,
-};
-
 export async function createPost(text: string, msgSender: string, value: number) {
+  const accessCondition = {
+    contractAddress: "0xd74c4701cc887ab8b6b5302ce4868c4fbc23de75",
+    chainID: 80001,
+    contractType: ContractType.Erc721,
+  };
+
+  const collectAccessCondition: CollectCondition = {
+    thisPublication: true,
+  };
+
+  const eoaAccessCondition: EoaOwnership = {
+    address: msgSender, // the address of the EOA that grants access to the metadata
+  };
+  console.log(`eoaAccessCondition: ${eoaAccessCondition.address}`);
+  const orCondition: OrCondition = {
+    criteria: [
+      {
+        eoa: eoaAccessCondition,
+      },
+      {
+        collect: collectAccessCondition,
+      },
+    ],
+  };
+
+  const collectModule = {
+    simpleCollectModule: {
+      followerOnly: false,
+    } as SimpleCollectModuleParams,
+  };
   console.log(`Creating post...`);
   console.log(`msgSender: ${msgSender}`, `value: ${value}`, `text: ${text}`);
   const address = await wallet.getAddress();
@@ -51,7 +68,7 @@ export async function createPost(text: string, msgSender: string, value: number)
     multirecipientFeeCollectModule: {
       amount: {
         currency: "0x9c3C9283D3e44854697Cd22D3Faa240Cfb032889",
-        value: "1",
+        value: `${value}`,
       },
       recipients: [
         {
@@ -103,7 +120,7 @@ export async function createPost(text: string, msgSender: string, value: number)
 
   // Define the access condition
   const condition = {
-    collect: collectAccessCondition,
+    eoa: eoaAccessCondition,
   };
 
   // Encrypt the metadata and upload it to IPFS

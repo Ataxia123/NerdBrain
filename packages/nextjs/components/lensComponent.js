@@ -11,7 +11,7 @@ import {
   signCreatePostTypedData,
   splitSignature,
   validateMetadata,
-} from "../api";
+} from "../pages/api/api";
 import { css } from "@emotion/css";
 import { ContractType, LensEnvironment, LensGatedSDK, ScalarOperator } from "@lens-protocol/sdk-gated";
 import { ethers } from "ethers";
