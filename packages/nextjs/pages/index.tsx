@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
+import UseFeed from "../components/FeedComponent";
 import { MetaHeader } from "../components/MetaHeader";
-import Feed from "../components/decryptPublication.js";
 import LensComponent from "../components/lensComponent.js";
 import { Card, Input } from "@mui/material";
 import axios from "axios";
@@ -176,7 +176,7 @@ const Home: NextPage = () => {
             Describe SavePoint: <br />
             <div className="flex justify-center items-center gap-12 flex-col sm:flex-row">
               {" "}
-              <Feed />
+              <UseFeed />
             </div>
           </div>
         </div>

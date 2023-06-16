@@ -1308,9 +1308,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@lens-protocol/api-bindings@npm:0.8.0":
-  version: 0.8.0
-  resolution: "@lens-protocol/api-bindings@npm:0.8.0"
+"@lens-protocol/api-bindings@npm:0.8.1":
+  version: 0.8.1
+  resolution: "@lens-protocol/api-bindings@npm:0.8.1"
   dependencies:
     "@apollo/client": ^3.7.1
     "@lens-protocol/domain": 0.8.0
@@ -1324,7 +1324,7 @@ __metadata:
   peerDependenciesMeta:
     "@faker-js/faker":
       optional: true
-  checksum: b38074304de3515bf898e217585b3b9e9f7941c754fac93c8c8e764f43d36cb7511ea10affe2d87cc776e252e1a62caf774d14fb8db83aef2aeb968e2ed738bb
+  checksum: 0bd47d0708a859b7bf90d3738d155e207cba8fb542d8a895be9dfeadb02e6080aa9a797bb3f02394e7ec4d9fccf10f1c7a6f3791b0ece1ca720376cfaeb7f53d
   languageName: node
   linkType: hard
 
@@ -1385,13 +1385,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@lens-protocol/gated-content@npm:0.2.2":
-  version: 0.2.2
-  resolution: "@lens-protocol/gated-content@npm:0.2.2"
+"@lens-protocol/gated-content@npm:0.2.3":
+  version: 0.2.3
+  resolution: "@lens-protocol/gated-content@npm:0.2.3"
   dependencies:
     "@ethersproject/address": ^5.7.0
     "@ethersproject/bignumber": ^5.7.0
-    "@lens-protocol/api-bindings": 0.8.0
+    "@lens-protocol/api-bindings": 0.8.1
     "@lens-protocol/domain": 0.8.0
     "@lens-protocol/shared-kernel": 0.8.0
     "@lens-protocol/storage": 0.7.2
@@ -1409,38 +1409,38 @@ __metadata:
     "@ethersproject/wallet": ^5.7.0
     ethers: ^5.7.2
     zod: ^3.20.6
-  checksum: 1d6b22ca44f3abbb82b0b65aa062f82c3d9a2205f0b9cde5bf299fcf92ee1472b6f4e0be52b63c331c455ec5d1a30415223a2e8846c612aae033df52e32d83a7
+  checksum: 1415e1a1977044cfbb0d0c36c814b9e999dd1e2727cd9e541ba00bf1e982d259fc22b04e85f2feee88a87c02cad1bb5974acd6e4bea45aa6e6b1f3e6c5e7446d
   languageName: node
   linkType: hard
 
-"@lens-protocol/react-web@npm:^1.1.0":
-  version: 1.1.0
-  resolution: "@lens-protocol/react-web@npm:1.1.0"
+"@lens-protocol/react-web@npm:^1.1.1":
+  version: 1.1.1
+  resolution: "@lens-protocol/react-web@npm:1.1.1"
   dependencies:
-    "@lens-protocol/api-bindings": 0.8.0
-    "@lens-protocol/gated-content": 0.2.2
-    "@lens-protocol/react": 1.1.0
+    "@lens-protocol/api-bindings": 0.8.1
+    "@lens-protocol/gated-content": 0.2.3
+    "@lens-protocol/react": 1.1.1
     "@lens-protocol/shared-kernel": 0.8.0
     "@lens-protocol/storage": 0.7.2
     tslib: ^2.5.0
   peerDependencies:
     ethers: ^5.7.2
     react: ^18.2.0
-  checksum: 7e80de11953f9ab6cc9b2fc61366ee546c384a79c9c07a866bddb1b374fdd043c2140a9733366dac213cbed882e288beceb11ea416b829453869767d258cea2b
+  checksum: 7d32a27f453aa2074a42ef67f138aa56207004bf33fb8eecd1151feec6c1612a106236987eb19866ec3a1674089ac0f09c395c659f3cb609f81be748685dbae2
   languageName: node
   linkType: hard
 
-"@lens-protocol/react@npm:1.1.0":
-  version: 1.1.0
-  resolution: "@lens-protocol/react@npm:1.1.0"
+"@lens-protocol/react@npm:1.1.1":
+  version: 1.1.1
+  resolution: "@lens-protocol/react@npm:1.1.1"
   dependencies:
     "@apollo/client": ^3.7.1
     "@ethersproject/abstract-signer": ^5.7.0
     "@ethersproject/providers": ^5.7.2
-    "@lens-protocol/api-bindings": 0.8.0
+    "@lens-protocol/api-bindings": 0.8.1
     "@lens-protocol/blockchain-bindings": 0.8.0
     "@lens-protocol/domain": 0.8.0
-    "@lens-protocol/gated-content": 0.2.2
+    "@lens-protocol/gated-content": 0.2.3
     "@lens-protocol/shared-kernel": 0.8.0
     "@lens-protocol/storage": 0.7.2
     graphql: ^16.6.0
@@ -1452,7 +1452,7 @@ __metadata:
   peerDependencies:
     ethers: ^5.7.2
     react: ^18.2.0
-  checksum: 2cc712c6d8ae851f04b36cd3f1847cd9a3600c64da30378773fc901658fc2a49dff556a9f6dbca909bbb718e666d05745e5fd713bfeeaa7ab27453960684bc1b
+  checksum: 50aa67d8087d5d2cb04e2efde5d0a216a83cf1199aa6e0d96208774a4b55386fcbc78984c055ed6686c9d665196b17abd3ad9187e6666703649faf21cfa43a58
   languageName: node
   linkType: hard
 
@@ -1504,16 +1504,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@lens-protocol/wagmi@npm:^1.1.0":
-  version: 1.1.0
-  resolution: "@lens-protocol/wagmi@npm:1.1.0"
+"@lens-protocol/wagmi@npm:^1.1.1":
+  version: 1.1.1
+  resolution: "@lens-protocol/wagmi@npm:1.1.1"
   dependencies:
     "@lens-protocol/shared-kernel": 0.8.0
   peerDependencies:
-    "@lens-protocol/react-web": 1.1.0
+    "@lens-protocol/react-web": 1.1.1
     ethers: ^5.7.2
     wagmi: 0.12.7
-  checksum: e4d827e80cd314e0533c1bf4b5b1a78d6a412157c693fab4f20c798a3841ba60bf3ddac344cde0503288e698f5fdf856eb427772a813f771d0d2b4b90eb6dd16
+  checksum: f2c9e55ad3a602d2346732153d83b55eb22a57f46b1616849215be9f1de51f069700ab2c0f005d1d2286ce5cbefb674b243b43260be4368ed3905756f78e42a2
   languageName: node
   linkType: hard
 
@@ -3118,9 +3118,9 @@ __metadata:
     "@ethersproject/web": ^5.7.1
     "@heroicons/react": ^2.0.11
     "@lens-protocol/client": ^1.1.0
-    "@lens-protocol/react-web": ^1.1.0
+    "@lens-protocol/react-web": ^1.1.1
     "@lens-protocol/sdk-gated": ^1.2.0
-    "@lens-protocol/wagmi": ^1.1.0
+    "@lens-protocol/wagmi": ^1.1.1
     "@mui/material": ^5.13.5
     "@rainbow-me/rainbowkit": ^0.11.0
     "@trivago/prettier-plugin-sort-imports": ^4.1.1
@@ -3139,7 +3139,7 @@ __metadata:
     eslint-config-next: ^13.1.6
     eslint-config-prettier: ^8.5.0
     eslint-plugin-prettier: ^4.2.1
-    ethers: ^5.0.0
+    ethers: legacy-v5
     ipfs-http-client: ^60.0.1
     lodash: ^4.17.21
     next: ^13.1.6
@@ -9063,7 +9063,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ethers@npm:=5.7.2, ethers@npm:^5.0.0, ethers@npm:^5.7.2":
+"ethers@npm:=5.7.2, ethers@npm:^5.7.2, ethers@npm:legacy-v5":
   version: 5.7.2
   resolution: "ethers@npm:5.7.2"
   dependencies:
