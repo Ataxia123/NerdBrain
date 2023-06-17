@@ -14,6 +14,7 @@ import { config } from "dotenv";
 import { add, debounce } from "lodash";
 import type { NextPage } from "next";
 import { useAccount } from "wagmi";
+import { BugAntIcon, MagnifyingGlassIcon, SparklesIcon } from "@heroicons/react/24/outline";
 
 // Assuming createPost is in the same file, otherwise import it
 
@@ -111,82 +112,95 @@ const Home: NextPage = () => {
     <>
       <MetaHeader />
 
-      <div className="flex items-center flex-col flex-grow pt-10 relative">
-        <div className="px-5">
-          <h1 className="text-center mb-8">
-            <span className="block text-2xl mb-2">Welcome to</span>
-            <span className="block text-4xl font-bold">SavePointGPT</span>
-          </h1>
-        </div>
-
-        <br />
-        <span>DECODE POSTS</span>
-        {loading && <span>LOADING</span>}
-        <UseProfileByHandle />
-        <Feed />
-        <UseCollectedPublications />
-        <div
-          className="flex-grow bg-base-300 w-full mt-16 px-8 py-12"
-          style={{
-            paddingRight: "20%",
-          }}
-        >
-          <div className="ps2-memory-card" style={{ marginTop: "10%", marginLeft: "53%" }}>
-            <Card
-              variant="outlined"
-              style={{ display: "flexbox", paddingRight: "10%", color: "#949491", backgroundColor: "#0e0f0f" }}
-            >
-              <span style={{ color: "#176db8" }}> Chat GPT Share Link </span>
-              <a
-                style={{ color: "blue" }}
-                href="https://help.openai.com/en/articles/7925741-chatgpt-shared-links-faq"
-                target="_blank"
-                rel="noreferrer"
-              >
-                ?
-              </a>{" "}
-              <br />{" "}
-              <Input
-                value={url}
-                onChange={handleChange}
-                style={{ color: "white", width: "80%", marginLeft: "15%", justifyContent: "center" }}
-              />
-              <br />
-              Payout Wallet Address: <br />{" "}
-              <Input
-                value={walletAddress}
-                onChange={e => setAddress(e.target.value)}
-                style={{ color: "white", width: "80%", marginLeft: "15%" }}
-              />
-              <br />
-              <br />
-              PostDescription
-              <Input
-                value={postText}
-                onChange={e => setPostText(e.target.value)}
-                style={{ color: "white", width: "80%", marginLeft: "15%" }}
-              />
-              PostValue [Matic]: <br />{" "}
-              <Input
-                value={postValue}
-                onChange={e => setPostValue(parseInt(e.target.value))}
-                style={{ color: "white", width: "80%", marginLeft: "15%" }}
-              />
-              <br />
-              <button onClick={handleCreatePost} style={{ border: "1px solid black", marginLeft: "25%" }}>
-                Create Post
-              </button>
-              {commentResponse && commentResponse}
-            </Card>
+      <div className="flex items-center flex-col flex-grow pt-10">
+        <div className="flex items-center flex-col flex-grow pt-10 relative">
+          <div className="px-5">
+            <h1 className="text-center mb-8">
+              <span className="block text-2xl mb-2">Welcome to</span>
+              <span className="block text-4xl font-bold">SavePointGPT</span>
+            </h1>
           </div>
-          <div className="flex flex-col bg-base-100 px-10 py-10 text-center items-center max-w-xs rounded-3xl">
-            Describe SavePoint: <br />
-            <div className="flex justify-center items-center gap-12 flex-col sm:flex-row">
-              {" "}
-              <UseCollect />
+
+          <br />
+          <span>DECODE POSTS</span>
+          {loading && <span>LOADING</span>}
+          <UseProfileByHandle />
+          <UseSearchPublication />
+        </div>
+        <div className="flex-grow bg-base-300 w-full mt-16 px-8 py-12">
+          <div className="flex justify-center items-top gap-12 flex-col sm:flex-row">
+            <div className="flex flex-col bg-base-100 px-10 py-10 text-center items-top max-w-xs rounded-3xl">
+              <BugAntIcon className="h-8 w-8 fill-secondary" />
+              <div className="ps2-memory-card" style={{ marginTop: "60%" }}>
+                <Card
+                  variant="outlined"
+                  style={{ display: "flexbox", paddingRight: "10%", color: "#949491", backgroundColor: "#0e0f0f" }}
+                >
+                  <span style={{ color: "#176db8" }}> Chat GPT Share Link </span>
+                  <a
+                    style={{ color: "blue" }}
+                    href="https://help.openai.com/en/articles/7925741-chatgpt-shared-links-faq"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    ?
+                  </a>{" "}
+                  <br />{" "}
+                  <Input
+                    value={url}
+                    onChange={handleChange}
+                    style={{ color: "white", width: "80%", marginLeft: "15%", justifyContent: "center" }}
+                  />
+                  <br />
+                  Payout Wallet Address: <br />{" "}
+                  <Input
+                    value={walletAddress}
+                    onChange={e => setAddress(e.target.value)}
+                    style={{ color: "white", width: "80%", marginLeft: "15%" }}
+                  />
+                  <br />
+                  <br />
+                  PostDescription
+                  <Input
+                    value={postText}
+                    onChange={e => setPostText(e.target.value)}
+                    style={{ color: "white", width: "80%", marginLeft: "15%" }}
+                  />
+                  PostValue [Matic]: <br />{" "}
+                  <Input
+                    value={postValue}
+                    onChange={e => setPostValue(parseInt(e.target.value))}
+                    style={{ color: "white", width: "80%", marginLeft: "15%" }}
+                  />
+                  <br />
+                  <button onClick={handleCreatePost} style={{ border: "1px solid black", marginLeft: "25%" }}>
+                    Create Post
+                  </button>
+                  {commentResponse && commentResponse}
+                </Card>
+              </div>
+            </div>
+            <div className="flex flex-col bg-base-100 px-10 py-10 text-center items-center max-w-xs rounded-3xl">
+              <SparklesIcon className="h-8 w-8 fill-secondary" />
+              <div className="flex flex-col bg-base-100 px-10 py-10 text-center items-center max-w-xs rounded-3xl">
+                Collect SavePoint: <br />
+                <div className="flex justify-center items-center gap-12 flex-col sm:flex-row">
+                  {" "}
+                  <UseCollect />
+                </div>
+              </div>
+            </div>
+            <div className="flex flex-col bg-base-100 px-10 py-10 text-center items-center max-w-xs rounded-3xl">
+              <MagnifyingGlassIcon className="h-8 w-8 fill-secondary" />
+              <div className="flex flex-col bg-base-100 px-10 py-10 text-center items-center max-w-xs rounded-3xl">
+                Collect SavePoint: <br />
+                <div className="flex justify-center items-center gap-12 flex-col sm:flex-row">
+                  {" "}
+                  <UseCollectedPublications />
+                </div>
+              </div>
             </div>
           </div>
-          <UseSearchPublication />
         </div>
       </div>
     </>
