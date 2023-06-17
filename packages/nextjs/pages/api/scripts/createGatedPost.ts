@@ -60,10 +60,12 @@ export async function createPost(text: string, msgSender: string, value: number)
       followerOnly: false,
     } as SimpleCollectModuleParams,
   };
+
   console.log(`Creating post...`);
   console.log(`msgSender: ${msgSender}`, `value: ${value}`, `text: ${text}`);
   const address = await wallet.getAddress();
   console.log(`address: ${address}`);
+
   const multiCollectModule = {
     multirecipientFeeCollectModule: {
       amount: {
@@ -103,7 +105,7 @@ export async function createPost(text: string, msgSender: string, value: number)
     version: "2.0.0",
     content: text,
     description: "This is a gated post!",
-    name: `Post by @${profileId}`,
+    name: `Post by @${msgSender}`,
     external_url: `https://lenster.xyz/u/savepointgpt`,
     metadata_id: uuid(),
     mainContentFocus: "TEXT_ONLY" as PublicationMainFocus,
@@ -120,7 +122,7 @@ export async function createPost(text: string, msgSender: string, value: number)
 
   // Define the access condition
   const condition = {
-    eoa: eoaAccessCondition,
+    or: orCondition,
   };
 
   // Encrypt the metadata and upload it to IPFS
@@ -139,7 +141,7 @@ export async function createPost(text: string, msgSender: string, value: number)
 
   const gated = {
     encryptedSymmetricKey: encryptedMetadata?.encryptionParams.providerSpecificParams.encryptionKey,
-    collect: collectAccessCondition,
+    or: orCondition,
   };
 
   console.log(`Post metadata was uploaded to ${contentURI}`);

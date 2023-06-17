@@ -3,7 +3,7 @@ import { WhenLoggedInWithProfile } from "./WhenLoggedInWithProfile";
 import { WhenLoggedOut } from "./WhenLoggedOut";
 import { useWalletLogin, useWalletLogout } from "@lens-protocol/react-web";
 import toast from "react-hot-toast";
-import { useAccount, useConnect, useDisconnect } from "wagmi";
+import { useAccount, useConnect, useDisconnect, useSigner } from "wagmi";
 import { InjectedConnector } from "wagmi/connectors/injected";
 
 export function LoginButton({ handle }: { handle?: string }) {
@@ -11,28 +11,15 @@ export function LoginButton({ handle }: { handle?: string }) {
   const { execute: logout, isPending: isLogoutPending } = useWalletLogout();
 
   const { isConnected } = useAccount();
-  const { disconnectAsync } = useDisconnect();
-
-  const { connectAsync } = useConnect({
-    connector: new InjectedConnector(),
-  });
-
+  const { data: signer } = useSigner();
   const onLoginClick = async () => {
-    if (isConnected) {
-      await disconnectAsync();
-    }
-
-    const { connector } = await connectAsync();
-
-    if (connector instanceof InjectedConnector) {
-      const signer = await connector.getSigner();
+    if (signer) {
       await login(signer, handle);
     }
   };
 
   const onLogoutClick = async () => {
     await logout();
-    await disconnectAsync();
   };
 
   useEffect(() => {

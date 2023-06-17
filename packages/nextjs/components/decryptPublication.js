@@ -11,7 +11,7 @@ export default function Feed() {
   const [post, setPost] = useState();
   const [loading, setLoading] = useState(false);
   const [publicationId, setPublicationId] = useState("");
-  const [profileId, setProfileId] = useState("");
+  const [profileId, setProfileId] = useState("0x85d9");
   const [message, setMessage] = useState("");
   const [postText, setProfileName] = useState("");
   const [commentResponse, setResponse] = useState();
@@ -20,7 +20,6 @@ export default function Feed() {
   useEffect(() => {
     checkConnection();
   }, []);
-  const provider = useProvider();
   const accounts = useAccount();
 
   async function checkConnection() {

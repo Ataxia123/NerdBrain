@@ -1,13 +1,17 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import UseFeed from "../components/FeedComponent";
 import { MetaHeader } from "../components/MetaHeader";
-import LensComponent from "../components/lensComponent.js";
+import UseCollect from "../components/UseCollect";
+import UseCollectedPublications from "../components/UseCollectedPublications";
+import UseProfileByHandle from "../components/UseProfileByHandle";
+import UseSearchPublication from "../components/UseSearchPublications";
+import Feed from "../components/decryptPublication.js";
+import { ProfileId } from "@lens-protocol/react-web";
 import { Card, Input } from "@mui/material";
 import axios from "axios";
 import { create } from "domain";
 import { config } from "dotenv";
-import { debounce } from "lodash";
+import { add, debounce } from "lodash";
 import type { NextPage } from "next";
 import { useAccount } from "wagmi";
 
@@ -118,6 +122,9 @@ const Home: NextPage = () => {
         <br />
         <span>DECODE POSTS</span>
         {loading && <span>LOADING</span>}
+        <UseProfileByHandle />
+        <Feed />
+        <UseCollectedPublications />
         <div
           className="flex-grow bg-base-300 w-full mt-16 px-8 py-12"
           style={{
@@ -176,9 +183,10 @@ const Home: NextPage = () => {
             Describe SavePoint: <br />
             <div className="flex justify-center items-center gap-12 flex-col sm:flex-row">
               {" "}
-              <UseFeed />
+              <UseCollect />
             </div>
           </div>
+          <UseSearchPublication />
         </div>
       </div>
     </>

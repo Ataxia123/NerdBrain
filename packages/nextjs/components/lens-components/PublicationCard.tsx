@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode, useEffect, useRef, useState } from "react";
 import { formatAmount } from "../../utils/utils";
 import { ProfilePicture } from "./ProfilePicture";
 import {
@@ -48,28 +48,48 @@ function formatDecryptionCriterion(criterion: AnyCriterion): string {
 
 type ContentProps = {
   publication: ContentPublication;
+  isViewing: boolean;
+  onScratchOff: () => void;
 };
-
-function Content({ publication }: ContentProps) {
+export function Content({ publication, isViewing, onScratchOff }: ContentProps) {
   const { decrypt, data, error, isPending } = useEncryptedPublication({
     publication,
   });
 
-  const { observe } = useInView({
-    threshold: 0.5,
+  const [isOverlayVisible, setIsOverlayVisible] = useState(false);
 
+  // Use useRef to store the unobserve function
+  const unobserveRef = useRef<(() => void) | null>(null);
+
+  const { observe } = useInView({
+    threshold: 1,
     onEnter: ({ unobserve }) => {
+      // Store the unobserve function in the ref
       unobserve();
-      void decrypt();
+      console.log("unobserverded", unobserve);
+      if (!isViewing) {
+        return "Not viewing this post"; // If the card is not being viewed, don't decrypt yet
+      }
+      // If the card is being viewed, stop observing and start decrypting
+      try {
+        void decrypt();
+        console.log("decrypting");
+      } catch (e) {
+        console.log(e);
+      }
     },
   });
 
-  if (isPending) {
-    return <p>Decrypting...</p>;
+  // if (isPending) {
+  //   return <p>WAAAA...</p>;
+  // }
+  if (isPending && error) {
+    return <p>WAAAA...</p>;
   }
 
-  if (error) {
-    return <p>{error.message}</p>;
+  if (error && isPending) {
+    console.log(error, isPending);
+    return <p>{error?.message}</p>;
   }
 
   if (data.hidden) {
@@ -77,25 +97,59 @@ function Content({ publication }: ContentProps) {
   }
 
   return (
-    <div ref={observe}>
-      <p>{data.metadata.content}</p>
-      {data.decryptionCriteria && (
-        <small>
-          <i>
-            To decrypt this publication you need to:&nbsp;
-            <b>{formatDecryptionCriterion(data.decryptionCriteria)}</b>
-          </i>
-        </small>
+    <article>
+      {/* "Scratch off" overlay */}
+      {!isViewing && (
+        <div
+          style={{
+            position: "relative",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "300%",
+            opacity: !isOverlayVisible ? 1 : 1,
+            backgroundColor: "rgba(0,0,0,0.5)",
+          }}
+          onClick={onScratchOff}
+        >
+          <p>Click to reveal content</p>
+
+          <p>{data.metadata.content}</p>
+          {data.decryptionCriteria && (
+            <small>
+              <i>
+                To decrypt this publication you need to:&nbsp;
+                <b>{formatDecryptionCriterion(data.decryptionCriteria)}</b>
+              </i>
+            </small>
+          )}
+        </div>
       )}
-    </div>
+      {isViewing && (
+        <div ref={observe}>
+          <p>Post Content</p>
+          {isPending && !data.metadata.content && <p>Decrypting...</p>}
+          <p>{data.metadata.content}</p>
+          <p>{!data.canObserverDecrypt && "Cannot Decrypt"}</p>
+          {data.decryptionCriteria && (
+            <small>
+              <i>
+                To decrypt this publication you need to:&nbsp;
+                <b>{formatDecryptionCriterion(data.decryptionCriteria)}</b>
+              </i>
+            </small>
+          )}
+        </div>
+      )}
+    </article>
   );
 }
 
 type PublicationCardProps = {
   publication: Post | Comment | Mirror | PendingPost;
 };
-
 export function PublicationCard({ publication }: PublicationCardProps) {
+  const [currentlyViewing, setCurrentlyViewing] = useState<any>(null);
   if (publication.__typename === "PendingPost") {
     return (
       <article>
@@ -110,8 +164,12 @@ export function PublicationCard({ publication }: PublicationCardProps) {
     <article>
       <ProfilePicture picture={publication.profile.picture} />
       <p>{publication.profile.name ?? `@${publication.profile.handle}`}</p>
-
-      <Content publication={isMirrorPublication(publication) ? publication.mirrorOf : publication} />
+      <Content
+        key={publication.id}
+        publication={isMirrorPublication(publication) ? publication.mirrorOf : publication}
+        isViewing={currentlyViewing === publication.id}
+        onScratchOff={() => setCurrentlyViewing(publication.id)}
+      />
     </article>
   );
 }
