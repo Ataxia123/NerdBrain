@@ -178,9 +178,8 @@ type CollectablePublicationCardProps = {
 
 export function CollectablePublicationCard({ publication, collectButton }: CollectablePublicationCardProps) {
   return (
-    <article>
-      <ProfilePicture picture={publication.profile.picture} />
-      <p>{publication.profile.name ?? `@${publication.profile.handle}`}</p>
+    <article className="ps2-memory-card">
+      <p>SAVEPOINT:</p>
       <p>{publication.hidden ? "This publication has been hidden" : publication.metadata.content}</p>
       {collectButton}
       {publication.collectPolicy.state === CollectState.COLLECT_LIMIT_REACHED && (

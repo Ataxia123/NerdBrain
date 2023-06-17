@@ -28,7 +28,7 @@ function CollectButton({ collector, publication }: CollectButtonProps) {
     case CollectState.CAN_BE_COLLECTED:
       return (
         <>
-          <button onClick={collect} disabled={isCollected || isPending}>
+          <button onClick={collect} disabled={isCollected || isPending} className={"btn"}>
             {error ? "Error" : isPending ? "Collecting..." : isCollected ? `You've already collected` : "Collect"}
           </button>
           {error && <ErrorMessage error={error} />}
@@ -63,7 +63,7 @@ function Feed({ activeProfile }: FeedProps) {
         .map((item, i) => (
           <CollectablePublicationCard
             key={`${item.root.id}-${i}`}
-            publication={item.root}
+            publication={item.comments ? [0] && item.comments[0] : item.root}
             collectButton={<CollectButton collector={activeProfile} publication={item.root} />}
           />
         ))}
