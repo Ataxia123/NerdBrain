@@ -131,10 +131,15 @@ const Home: NextPage = () => {
           <div className="flex justify-center items-top gap-12 flex-col sm:flex-row">
             <div className="flex flex-col bg-base-100 px-10 py-10 text-center items-top max-w-xs rounded-3xl">
               <BugAntIcon className="h-8 w-8 fill-secondary" />
-              <div className="ps2-memory-card" style={{ marginTop: "60%" }}>
+              <div className="ps2-memory-card" style={{ marginTop: "60%", overflow: "visible" }}>
                 <Card
                   variant="outlined"
-                  style={{ display: "flexbox", paddingRight: "10%", color: "#949491", backgroundColor: "#0e0f0f" }}
+                  style={{
+                    display: "flexbox",
+                    paddingRight: "10%",
+                    color: "#949491",
+                    backgroundColor: "#0e0f0f",
+                  }}
                 >
                   <span style={{ color: "#176db8" }}> Chat GPT Share Link </span>
                   <a
@@ -173,7 +178,11 @@ const Home: NextPage = () => {
                     style={{ color: "white", width: "80%", marginLeft: "15%" }}
                   />
                   <br />
-                  <button onClick={handleCreatePost} style={{ border: "1px solid black", marginLeft: "25%" }}>
+                  <button
+                    onClick={handleCreatePost}
+                    className={"btn"}
+                    style={{ border: "1px solid black", marginLeft: "10%" }}
+                  >
                     Create Post
                   </button>
                   {commentResponse && commentResponse}
