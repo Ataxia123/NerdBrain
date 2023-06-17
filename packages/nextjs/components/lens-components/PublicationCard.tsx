@@ -63,7 +63,7 @@ export function Content({ publication, isViewing, onScratchOff }: ContentProps) 
 
   const { observe } = useInView({
     threshold: 1,
-    onEnter: ({ unobserve }) => {
+    onEnter: async ({ unobserve }) => {
       // Store the unobserve function in the ref
       unobserve();
       console.log("unobserverded", unobserve);
@@ -71,12 +71,9 @@ export function Content({ publication, isViewing, onScratchOff }: ContentProps) 
         return "Not viewing this post"; // If the card is not being viewed, don't decrypt yet
       }
       // If the card is being viewed, stop observing and start decrypting
-      try {
-        void decrypt();
-        console.log("decrypting");
-      } catch (e) {
-        console.log(e);
-      }
+
+      void decrypt();
+      console.log("decrypting");
     },
   });
 
