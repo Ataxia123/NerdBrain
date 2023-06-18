@@ -146,7 +146,6 @@ export function PublicationCard({ publication }: PublicationCardProps) {
   if (publication.__typename === "PendingPost") {
     return (
       <article>
-        <ProfilePicture picture={publication.profile.picture} />
         <p>{publication.profile.name ?? `@${publication.profile.handle}`}</p>
         <div>{publication.content}</div>
       </article>
@@ -155,8 +154,6 @@ export function PublicationCard({ publication }: PublicationCardProps) {
 
   return (
     <article>
-      <ProfilePicture picture={publication.profile.picture} />
-      <p>{publication.profile.name ?? `@${publication.profile.handle}`}</p>
       <Content
         key={publication.id}
         publication={isMirrorPublication(publication) ? publication.mirrorOf : publication}
