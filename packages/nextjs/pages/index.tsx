@@ -2,10 +2,9 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { MetaHeader } from "../components/MetaHeader";
 import UseCollect from "../components/UseCollect";
-import UseCollectedPublications from "../components/UseCollectedPublications";
+import { UseCollectedPublications } from "../components/UseCollectedPublications";
 import UseProfileByHandle from "../components/UseProfileByHandle";
 import UseSearchPublication from "../components/UseSearchPublications";
-import Feed from "../components/decryptPublication.js";
 import { ProfileId } from "@lens-protocol/react-web";
 import { Card, Input } from "@mui/material";
 import axios from "axios";
@@ -33,7 +32,7 @@ const Home: NextPage = () => {
 
   useEffect(() => {
     if (isConnecting && address) setAddress(address);
-  }, [isConnecting]);
+  }, [isConnecting, address, setAddress]);
 
   const handleChange = (event: any) => {
     const urlRegex = /^https:\/\/chat\.openai\.com\/share\/[\w-]+$/;

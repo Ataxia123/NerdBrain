@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useInfiniteScroll } from "../hooks/useInfiniteScroll";
 import { Content, PublicationCard } from "./lens-components/PublicationCard";
 import { LoginButton, WhenLoggedInWithProfile, WhenLoggedOut } from "./lens-components/auth";
+import { PublicationCard as DefaultCard } from "./lens-components/defaultCard";
 import { ErrorMessage } from "./lens-components/error/ErrorMessage";
 import { Loading } from "./lens-components/loading/Loading";
 import { useCollectedPublications } from "@lens-protocol/react-web";
@@ -67,7 +68,7 @@ function UseFeedInner({ profile }: UseFeedInnerProps) {
 
       {data?.map((item, i) => (
         <>
-          <PublicationCard key={`${item.root.id}-${i}`} publication={item.root} />
+          <DefaultCard key={`${item.root.id}-${i}`} publication={item.root} />
           {item.comments?.map((comment, j) => (
             <Content
               key={`${comment.id}-${i}`}
@@ -86,7 +87,8 @@ function UseFeedInner({ profile }: UseFeedInnerProps) {
   );
 }
 
-export default function UseCollectedPublications() {
+export function UseCollectedPublications() {
+  console.log("UseCollectedPublications");
   return (
     <div>
       <h1>
