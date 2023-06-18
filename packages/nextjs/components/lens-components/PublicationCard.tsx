@@ -14,6 +14,7 @@ import {
   useEncryptedPublication,
 } from "@lens-protocol/react-web";
 import { useInView } from "react-cool-inview";
+import comment from "~~/pages/api/comment";
 
 function formatDecryptionCriterion(criterion: AnyCriterion): string {
   switch (criterion.type) {
@@ -55,11 +56,6 @@ export function Content({ publication, isViewing, onScratchOff }: ContentProps) 
   const { decrypt, data, error, isPending } = useEncryptedPublication({
     publication,
   });
-
-  const [isOverlayVisible, setIsOverlayVisible] = useState(false);
-
-  // Use useRef to store the unobserve function
-  const unobserveRef = useRef<(() => void) | null>(null);
 
   const { observe } = useInView({
     threshold: 1,
@@ -104,12 +100,12 @@ export function Content({ publication, isViewing, onScratchOff }: ContentProps) 
             left: 0,
             width: "100%",
             height: "300%",
-            opacity: !isOverlayVisible ? 1 : 1,
+            opacity: 1,
             backgroundColor: "rgba(0,0,0,0.5)",
           }}
           onClick={onScratchOff}
         >
-          <p>Click to reveal content</p>
+          {data.__typename === "Post" && <p className="btn">Click to reveal content</p>}
 
           <p>{data.metadata.content}</p>
           {data.decryptionCriteria && (
