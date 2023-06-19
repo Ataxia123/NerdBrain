@@ -143,14 +143,27 @@ const Home: NextPage = () => {
                 <Input
                   value={url}
                   onChange={handleChange}
-                  style={{ color: "white", width: "80%", marginLeft: "15%", justifyContent: "center" }}
+                  style={{
+                    color: "white",
+                    width: "80%",
+                    marginLeft: "15%",
+                    justifyContent: "center",
+                    border: "white 2px solid",
+                    borderRadius: "5px",
+                  }}
                 />
                 <br />
                 Payout Wallet Address: <br />{" "}
                 <Input
                   value={walletAddress}
                   onChange={e => setAddress(e.target.value)}
-                  style={{ color: "white", width: "80%", marginLeft: "15%" }}
+                  style={{
+                    color: "white",
+                    width: "80%",
+                    marginLeft: "15%",
+                    border: "white 2px solid",
+                    borderRadius: "5px",
+                  }}
                 />
                 <br />
                 <br />
@@ -158,13 +171,25 @@ const Home: NextPage = () => {
                 <Input
                   value={postText}
                   onChange={e => setPostText(e.target.value)}
-                  style={{ color: "white", width: "80%", marginLeft: "15%" }}
+                  style={{
+                    color: "white",
+                    width: "80%",
+                    marginLeft: "15%",
+                    border: "white 2px solid",
+                    borderRadius: "5px",
+                  }}
                 />
                 PostValue [Matic]: <br />{" "}
                 <Input
                   value={postValue}
                   onChange={e => setPostValue(parseInt(e.target.value))}
-                  style={{ color: "white", width: "80%", marginLeft: "15%" }}
+                  style={{
+                    color: "white",
+                    width: "80%",
+                    marginLeft: "15%",
+                    border: "white 2px solid",
+                    borderRadius: "5px",
+                  }}
                 />
                 <br />
                 <button
