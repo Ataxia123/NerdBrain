@@ -206,25 +206,22 @@ const Home: NextPage = () => {
           <UseSearchPublication />
         </div>
 
-        <div
-          className="flex flex-row bg-base-100 px-100 py-1 text-center items-left max-w-xs rounded-3xl"
-          style={{ marginTop: "5%", marginRight: "22%" }}
-        >
-          <div className="flex justify-center items-top gap-12 flex-col sm:flex-row">
+        <div className="flex justify-center items-top gap-12 flex-col sm:flex-row">
+          {/* this is the css that affects collect savepoint feed div */}
+          <div className="flex flex-col bg-base-100 px-10 py-10 text-center max-w-xs mt-6 items-center rounded-3xl">
+            <SparklesIcon className="h-8 w-8 fill-secondary" />
             <div className="flex flex-col bg-base-100 px-10 py-10 text-center items-center max-w-xs rounded-3xl">
-              <SparklesIcon className="h-8 w-8 fill-secondary" />
-              <div className="flex flex-col bg-base-100 px-10 py-10 text-center items-center max-w-xs rounded-3xl">
-                Collect SavePoint: <br />
-                <div className="flex justify-center items-center gap-12 flex-col sm:flex-row">
-                  {" "}
-                  <UseCollect />
-                </div>
+              Collect SavePoint: <br />
+              <div className="flex justify-center items-center gap-12 flex-col sm:flex-row">
+                {" "}
+                <UseCollect />
               </div>
             </div>
-            <div className="flex flex-col bg-base-100 px-10 py-10 text-center items-center max-w-xs rounded-3xl">
-              <MagnifyingGlassIcon className="h-8 w-8 fill-secondary" />
-              <UseCollectedPublications />
-            </div>
+          </div>
+          {/* this is the spot that affects the "restrict event types" div or whatever its called */}
+          <div className="flex flex-col bg-base-100 px-10 py-10 text-center items-center mt-6 max-w-xs overflow-auto rounded-3xl">
+            <MagnifyingGlassIcon className="h-8 w-8 fill-secondary" />
+            <UseCollectedPublications />
           </div>
         </div>
       </div>

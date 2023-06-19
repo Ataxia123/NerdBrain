@@ -39,6 +39,6 @@ p {
          border-4 border-gray-900 
          flex-col items-center justify-center
          text-white font-bold 
-         overflow-scroll
+         overflow-auto mb-6
          transition-transform duration-500 ease-in-out;
 }
