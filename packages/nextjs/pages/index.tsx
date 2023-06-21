@@ -1,16 +1,38 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
+import CollectSavePoint from "../components/CollectSavePoint";
 import { MetaHeader } from "../components/MetaHeader";
-import Feed from "../components/decryptPublication.js";
-import LensComponent from "../components/lensComponent.js";
+import { PostCard } from "../components/PostCard";
+import Publication from "../components/Publication";
+import UseCollect from "../components/UseCollect";
+import { UseCollectedPublications } from "../components/UseCollectedPublications";
+import UseProfileByHandle from "../components/UseProfileByHandle";
+import UseSearchPublication from "../components/UseSearchPublications";
+import { ProfileId } from "@lens-protocol/react-web";
 import axios from "axios";
+import { create } from "domain";
 import { config } from "dotenv";
+import { add, debounce } from "lodash";
 import type { NextPage } from "next";
+import { useAccount } from "wagmi";
 
 const Home: NextPage = () => {
-  // Assuming createPost is in the same file, otherwise import it
-  const [postText, setProfileName] = useState("");
   const [url, setUrl] = useState("");
+  const [postValue, setPostValue] = useState(0.1);
+  const { address, isConnecting, isDisconnected } = useAccount();
+  const [walletAddress, setAddress] = useState("");
+  const [error, setError] = useState(null);
+  const [commentResponse, setResponse] = useState<any>();
+  const [debouncedValue, setDebouncedValue] = useState("");
+  const [postId, setPostId] = useState("");
+  const [postText, setPostText] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  // Update debounced value after user stops typing for 500ms
+
+  useEffect(() => {
+    if (isConnecting && address) setAddress(address);
+  }, [isConnecting, address, setAddress]);
 
   const handleChange = (event: any) => {
     const urlRegex = /^https:\/\/chat\.openai\.com\/share\/[\w-]+$/;
@@ -21,100 +43,41 @@ const Home: NextPage = () => {
     }
   };
 
-  config();
-  const PostCreator = () => {
-    const handleCreatePost = async () => {
-      try {
-        const postData = { text: url };
-        const response = await createPost(postData);
-
-        console.log(response);
-        // Do something with response or show success message...
-      } catch (error) {
-        // Handle error...
-      }
-    };
-
-    return (
-      <div>
-        <textarea value={url} onChange={handleChange} style={{ color: "black" }} />
-        <br />
-        <button onClick={handleCreatePost}>Create Post</button>
-      </div>
-    );
-  };
-
-  const ProfileCreator = () => {
-    const [postText, setProfileName] = useState("");
-    const [url, setUrl] = useState("");
-
-    const handleCreateProfile = async () => {
-      try {
-        const postData = { handle: postText, profilePictureUri: url };
-        const response = await createProfile(postData);
-
-        console.log(response);
-        // Do something with response or show success message...
-      } catch (error) {
-        // Handle error...
-      }
-    };
-
-    return (
-      <div>
-        <textarea value={postText} onChange={e => setProfileName(e.target.value)} style={{ color: "black" }} />
-        <textarea value={url} onChange={e => setUrl(e.target.value)} style={{ color: "black" }} />
-        <br />
-        <button onClick={handleCreateProfile}>Create Profile</button>
-      </div>
-    );
-  };
-
-  const createPost = async (postData: any) => {
-    try {
-      const response = await axios.post("http://localhost:8546/users/postThingy", postData);
-      return response.data;
-    } catch (error) {
-      console.error("Error:", error);
-      throw error;
-    }
-  };
-
-  const createProfile = async (postData: any) => {
-    try {
-      const response = await axios.post("http://localhost:8546/create", postData);
-      return response.data;
-    } catch (error) {
-      console.error("Error:", error);
-      throw error;
-    }
-  };
+  // Move postComment and createProfile functions to a new or existing custom Hook
 
   return (
     <>
       <MetaHeader />
 
       <div className="flex items-center flex-col flex-grow pt-10">
-        <div className="px-5">
-          <h1 className="text-center mb-8">
-            <span className="block text-2xl mb-2">Welcome to</span>
-            <span className="block text-4xl font-bold">SavePointGPT</span>
-          </h1>
-        </div>
-        <Feed />
-        <ProfileCreator />
-        <PostCreator />
-        <div
-          className="flex-grow bg-base-300 w-full mt-16 px-8 py-12"
-          style={{
-            marginLeft: "20%",
-            paddingRight: "20%",
-          }}
-        >
-          <div className="flex justify-center items-center gap-12 flex-col sm:flex-row"></div>
-          <LensComponent />
+        <UseProfileByHandle />
+        <div className="flex items-center flex-col flex-grow pt-10 relative">
+          <br />
+          <span>DECODE POSTS</span>
+          {loading && <span>LOADING</span>}
 
-          <div className="flex flex-col bg-base-100 px-10 py-10 text-center items-center max-w-xs rounded-3xl"></div>
+          <PostCard
+            walletAddress={walletAddress}
+            setWalletAddress={setAddress}
+            postText={postText}
+            setPostText={setPostText}
+            postValue={postValue}
+            setPostValue={setPostValue}
+            setResponse={setResponse}
+            setError={setError}
+            setLoading={setLoading}
+            loading={loading}
+          />
+
+          <UseSearchPublication />
+        </div>
+
+        <div className="flex justify-center items-top gap-12 flex-col sm:flex-row">
+          {/* this is the css that affects collect savepoint feed div */}
+          <CollectSavePoint />
+
+          {/* this is the spot that affects the "restrict event types" div or whatever its called */}
+          <Publication />
         </div>
       </div>
     </>

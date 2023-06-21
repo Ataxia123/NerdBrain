@@ -1,6 +1,16 @@
+import { useState } from "react";
+import { Content, PublicationCard } from "../components/lens-components/PublicationCard";
+import { LoginButton, WhenLoggedInWithProfile, WhenLoggedOut } from "../components/lens-components/auth";
+import { ErrorMessage } from "../components/lens-components/error/ErrorMessage";
+import { Loading } from "../components/lens-components/loading/Loading";
+import { useInfiniteScroll } from "../hooks/useInfiniteScroll";
+import { useActiveProfile } from "@lens-protocol/react-web";
+import { FeedEventItemType, ProfileOwnedByMe, useFeed } from "@lens-protocol/react-web";
 import type { NextPage } from "next";
 import { useLocalStorage } from "usehooks-ts";
+import { useAccount } from "wagmi";
 import { MetaHeader } from "~~/components/MetaHeader";
+import { UseCollectedPublications } from "~~/components/UseCollectedPublications";
 import { ContractUI } from "~~/components/scaffold-eth";
 import { ContractName } from "~~/utils/scaffold-eth/contract";
 import { getContractNames } from "~~/utils/scaffold-eth/contractNames";
@@ -13,52 +23,102 @@ const Debug: NextPage = () => {
     selectedContractStorageKey,
     contractNames[0],
   );
+  const allFeedEventTypes = [
+    FeedEventItemType.Comment,
+    FeedEventItemType.Post,
+    FeedEventItemType.Mirror,
+    FeedEventItemType.CollectComment,
+    FeedEventItemType.CollectPost,
+  ];
 
+  type UseFeedInnerProps = {
+    profile: ProfileOwnedByMe;
+  };
+
+  function UseFeedInner({ profile }: UseFeedInnerProps) {
+    const [restrictEventTypesTo, setRestrictEventTypesTo] = useState<FeedEventItemType[]>([FeedEventItemType.Comment]);
+    const { data, error, loading, hasMore, observeRef, prev } = useInfiniteScroll(
+      useFeed({
+        profileId: profile.id,
+        ...(restrictEventTypesTo.length > 0 && { restrictEventTypesTo }),
+        observerId: profile.id,
+      }),
+    );
+    return (
+      <div>
+        <fieldset>
+          <legend>Restrict event types to</legend>
+          {allFeedEventTypes.map(value => (
+            <label key={value}>
+              <input
+                type="checkbox"
+                checked={restrictEventTypesTo.includes(value)}
+                name="restrictEventTypesTo"
+                value={value}
+                onChange={e => {
+                  if (e.target.checked) {
+                    setRestrictEventTypesTo([...restrictEventTypesTo, value]);
+                  } else {
+                    setRestrictEventTypesTo(restrictEventTypesTo.filter(i => i !== value));
+                  }
+                }}
+              />
+              &nbsp;{value}
+            </label>
+          ))}
+        </fieldset>
+
+        {data?.length === 0 && <p>No items</p>}
+
+        {loading && <Loading />}
+
+        {error && <ErrorMessage error={error} />}
+
+        <button disabled={loading} onClick={prev}>
+          Fetch newer
+        </button>
+
+        {data?.map((item, i) => (
+          <>
+            <PublicationCard key={`${item.root.id}-${i}`} publication={item.root} />
+            {item.comments?.map((comment, j) => (
+              <Content
+                key={`${comment.id}-${i}`}
+                publication={comment}
+                isViewing={false}
+                onScratchOff={() => {
+                  console.log("scratch off");
+                }}
+              />
+            ))}
+          </>
+        ))}
+
+        {hasMore && <p ref={observeRef}>Loading more...</p>}
+      </div>
+    );
+  }
   return (
     <>
       <MetaHeader
         title="Debug Contracts | Scaffold-ETH 2"
         description="Debug your deployed 🏗 Scaffold-ETH 2 contracts in an easy way"
       />
-      <div className="flex flex-col gap-y-6 lg:gap-y-8 py-8 lg:py-12 justify-center items-center">
-        {contractNames.length === 0 ? (
-          <p className="text-3xl mt-14">No contracts found!</p>
-        ) : (
-          <>
-            {contractNames.length > 1 && (
-              <div className="flex flex-row gap-2 w-full max-w-7xl pb-1 px-6 lg:px-10 flex-wrap">
-                {contractNames.map(contractName => (
-                  <button
-                    className={`btn btn-secondary btn-sm normal-case font-thin ${
-                      contractName === selectedContract ? "bg-base-300" : "bg-base-100"
-                    }`}
-                    key={contractName}
-                    onClick={() => setSelectedContract(contractName)}
-                  >
-                    {contractName}
-                  </button>
-                ))}
+
+      <div className="container max-w-3xl mx-auto text-center py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
+        {" "}
+        <div>
+          <h1>
+            <WhenLoggedInWithProfile>{({ profile }) => <UseFeedInner profile={profile} />}</WhenLoggedInWithProfile>
+            <WhenLoggedOut>
+              <div>
+                <p>You must be logged in to use this example.</p>
               </div>
-            )}
-            {contractNames.map(contractName => (
-              <ContractUI
-                key={contractName}
-                contractName={contractName}
-                className={contractName === selectedContract ? "" : "hidden"}
-              />
-            ))}
-          </>
-        )}
-      </div>
-      <div className="text-center mt-8 bg-secondary p-10">
-        <h1 className="text-4xl my-0">Debug Contracts</h1>
-        <p className="text-neutral">
-          You can debug & interact with your deployed contracts here.
-          <br /> Check{" "}
-          <code className="italic bg-base-300 text-base font-bold [word-spacing:-0.5rem] px-1">
-            packages / nextjs / pages / debug.tsx
-          </code>{" "}
-        </p>
+            </WhenLoggedOut>
+            <code>useCollectedPublications</code>
+            <LoginButton />
+          </h1>
+        </div>
       </div>
     </>
   );
