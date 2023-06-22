@@ -10,7 +10,7 @@ import type { NextPage } from "next";
 import { useLocalStorage } from "usehooks-ts";
 import { useAccount } from "wagmi";
 import { MetaHeader } from "~~/components/MetaHeader";
-import { UseCollectedPublications } from "~~/components/UseCollectedPublications";
+import UseCollectedPublications from "~~/components/UseCollectedPublications";
 import { ContractUI } from "~~/components/scaffold-eth";
 import { ContractName } from "~~/utils/scaffold-eth/contract";
 import { getContractNames } from "~~/utils/scaffold-eth/contractNames";

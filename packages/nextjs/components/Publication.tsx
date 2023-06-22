@@ -1,5 +1,5 @@
 import React from "react";
-import { UseCollectedPublications } from "../components/UseCollectedPublications";
+import UseCollectedPublications from "../components/UseCollectedPublications";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 
 const PublicationComponent = () => (

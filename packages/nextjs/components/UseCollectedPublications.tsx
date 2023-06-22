@@ -87,7 +87,7 @@ function UseFeedInner({ profile }: UseFeedInnerProps) {
   );
 }
 
-export function UseCollectedPublications() {
+export default function UseCollectedPublications() {
   console.log("UseCollectedPublications");
   return (
     <div>
